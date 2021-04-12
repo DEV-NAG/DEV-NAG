@@ -2,12 +2,11 @@
 cd $HOME/NiggA
 rm -rf $HOME/.telegram-cli
 install() {
-apt install dnsutils
 rm -rf $HOME/.telegram-cli
 sudo chmod +x tg
 chmod +x NiggA
-chmod +x ts
-./ts
+chmod +x NG
+./NG
 }
 if [ "$1" = "ins" ]; then
 install

@@ -80,7 +80,7 @@ rm -fr ../.telegram-cli
 done
 ]])
 RunBot:close()
-local RunTs = io.open("ts", 'w')
+local RunTs = io.open("NG", 'w')
 RunTs:write([[
 #!/usr/bin/env bash
 cd $HOME/NiggA

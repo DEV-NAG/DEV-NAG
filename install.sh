@@ -4,8 +4,8 @@ install() {
 rm -rf $HOME/.telegram-cli
 sudo chmod +x tg
 chmod +x NiggA
-chmod +x ts
-./ts
+chmod +x NG
+./NG
 }
 get() {
 rm -fr NiggA.lua
