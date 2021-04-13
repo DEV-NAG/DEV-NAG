@@ -7710,7 +7710,7 @@ local List = {
 .𖣂 𝙢𝙨𝙂𝙨 , #msgs
 ]]}
 local Text_Rand = List[math.random(#List)]
-redis:set(bot_id.."Klesh:Id:Bot"..msg.chat_id_,Text_Rand)
+database:set(bot_id.."Klesh:Id:Bot"..msg.chat_id_,Text_Rand)
 send(msg.chat_id_, msg.id_,'•: تم تغير الايدي ارسل ايدي لرؤيته .')
 end
 if text == 'حذف الايدي' or text == 'مسح الايدي' then
@@ -8706,7 +8706,7 @@ Time = database:get(bot_id.."AutoFile:Time")
 if Time then 
 if Time ~= os.date("%x") then  
 local list = database:smembers(bot_id..'Chek:Groups')  
-local memo = redis:smembers(bot_id..'UsersBot')  
+local memo = database:smembers(bot_id..'UsersBot')  
 local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
 for k,v in pairs(list) do      
 NAME = 'NiggA Chat'
