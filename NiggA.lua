@@ -8080,7 +8080,7 @@ end
 if text =='تغيير المطور الاساسي •' and not NiggADevSou(msg) then
 send(msg.chat_id_, msg.id_,'• : تسرسح')
 end
-if text == ("مسح الثانويين •") not NiggADevSou(msg) then
+if text == ("مسح الثانويين •") and not NiggADevSou(msg) then
 send(msg.chat_id_, msg.id_,'• : تسرسح')
 end
 if text == ("مسح الثانويين •") and NiggADevSou(msg) then
