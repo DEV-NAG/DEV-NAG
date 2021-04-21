@@ -86,7 +86,7 @@ end
 end
 function creatorA(msg)
 local hash = database:sismember(bot_id.."creator"..msg.chat_id_, msg.sender_user_id_) 
-if hash or DevNiggA(msg) or DevBot(msg) or VIP_DeV(msg) then     
+if hash or DevNiggA(msg) or DevBot(msg) or NiggADevSou(msg) then     
 return true 
 else 
 return false 
@@ -2570,7 +2570,7 @@ database:srem(bot_id.."creator"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","*• تم تنزيله من المالكين*")  
 return false
 end
-if text == ("رفع مطور ثانوي") and tonumber(msg.reply_to_message_id_) ~= 0 and VIP_DeV(msg) then
+if text == ("رفع مطور ثانوي") and tonumber(msg.reply_to_message_id_) ~= 0 and NiggADevSou(msg) then
 function Function_NiggA(extra, result, success)
 database:sadd(bot_id.."DEV:Sudo:T", result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته مطور ثانوي في البوت")  
@@ -2578,7 +2578,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
 return false 
 end
-if text and text:match("^رفع مطور ثانوي @(.*)$") and VIP_DeV(msg) then
+if text and text:match("^رفع مطور ثانوي @(.*)$") and NiggADevSou(msg) then
 local username = text:match("^رفع مطور ثانوي @(.*)$")
 function Function_NiggA(extra, result, success)
 if result.id_ then
@@ -2595,13 +2595,13 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
 return false 
 end
-if text and text:match("^رفع مطور ثانوي (%d+)$") and VIP_DeV(msg) then
+if text and text:match("^رفع مطور ثانوي (%d+)$") and NiggADevSou(msg) then
 local userid = text:match("^رفع مطور ثانوي (%d+)$")
 database:sadd(bot_id.."DEV:Sudo:T", userid)
 Reply_Status(msg,userid,"reply","• تم ترقيته مطور ثانوي في البوت")  
 return false 
 end
-if text == ("حذف مطور ثانوي") and tonumber(msg.reply_to_message_id_) ~= 0 and VIP_DeV(msg) then
+if text == ("حذف مطور ثانوي") and tonumber(msg.reply_to_message_id_) ~= 0 and NiggADevSou(msg) then
 function Function_NiggA(extra, result, success)
 database:srem(bot_id.."DEV:Sudo:T", result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم تنزيله من المطور ثانويين")  
@@ -2609,7 +2609,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
 return false 
 end
-if text and text:match("^حذف مطور ثانوي @(.*)$") and VIP_DeV(msg) then
+if text and text:match("^حذف مطور ثانوي @(.*)$") and NiggADevSou(msg) then
 local username = text:match("^حذف مطور ثانوي @(.*)$")
 function Function_NiggA(extra, result, success)
 if result.id_ then
@@ -2622,7 +2622,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
 return false
 end  
-if text and text:match("^حذف مطور ثانوي (%d+)$") and VIP_DeV(msg) then
+if text and text:match("^حذف مطور ثانوي (%d+)$") and NiggADevSou(msg) then
 local userid = text:match("^حذف مطور ثانوي (%d+)$")
 database:srem(bot_id.."DEV:Sudo:T", userid)
 Reply_Status(msg,userid,"reply","• تم تنزيله من المطور ثانويين")  
@@ -2644,7 +2644,7 @@ t = "• لا يوجد مطورين ثانويين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("مسح الثانويين") and VIP_DeV(msg) then
+if text == ("مسح الثانويين") and NiggADevSou(msg) then
 database:del(bot_id.."DEV:Sudo:T")
 send(msg.chat_id_, msg.id_, "\n•  تم مسح قائمة المطورين الثانويين  ")
 end
@@ -5578,6 +5578,16 @@ else
 last_name = ""
 end      
 send(msg.chat_id_, msg.id_,first_name.."\n"..last_name) 
+end,nil)
+end 
+if text == 'رقمي' and GetSourseMember(msg) then   
+tdcli_function({ID="GetUser",user_id_=msg.sender_user_id_},function(extra,result,success)
+if result.phone_number_  then
+one_nu = "• رقمك {`"..(result.phone_number_).."`}"
+else
+one_nu = "تم وضع رقمك لجهاتك اتصالك فقط"
+end      
+send(msg.chat_id_, msg.id_,one_nu) 
 end,nil)
 end 
 if text == 'ايديي' and GetSourseMember(msg) then   
