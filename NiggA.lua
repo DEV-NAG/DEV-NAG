@@ -1609,7 +1609,7 @@ for i,lock in pairs(list) do
 database:set(bot_id..lock..msg.chat_id_,'del')    
 end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
-Reply_Status(msg,msg.sender_user_id_,"lock","• تم تعطيل الحمايه بنجاح") 
+Reply_Status(msg,msg.sender_user_id_,"lock","• تم تفعيل الحمايه بنجاح") 
 return false
 end,nil)   
 end
@@ -1620,7 +1620,7 @@ for i,lock in pairs(list) do
 database:del(bot_id..lock..msg.chat_id_)    
 end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
-Reply_Status(msg,msg.sender_user_id_,"lock","• تم تفعيل الحمايه بنجاح") 
+Reply_Status(msg,msg.sender_user_id_,"lock","• تم تعطيل الحمايه بنجاح") 
 return false
 end,nil)   
 end
@@ -4927,9 +4927,29 @@ send(msg.chat_id_, msg.id_,"• ارسل الكلمه التي تريد حذفه
 database:set(bot_id.."Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true2")
 return false 
 end
+if text == 'كت تويت' then
+local list = database:smembers(bot_id..'gamebot:List:Manager')
+quschen = list[math.random(#list)]
+send(msg.chat_id_, msg.id_,quschen)
+end
 if text and text:match("^(.*)$") then
 if database:get(bot_id.."Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
-send(msg.chat_id_, msg.id_, '• الان ارسل الرد الذي تريد اضافته \n•  قد يكون (ملف - فديو - نص - ملصق - بصمه - متحركه )\n•  يمكنك اضافه الى النص :\n- `#username` > اسم المستخدم\n- `#msgs` > عدد رسائل المستخدم\n- `#name` > اسم المستخدم\n- `#id` > ايدي المستخدم\n- `#stast` > موقع المستخدم \n- `#edit` > عدد السحكات ')
+local Text= [[
+> NIGGA
+• لان ارسل الرد الذي تريد اضافته 
+•  قد يكون (ملف - فديو - نص - ملصق - بصمه - متحركه )
+• يمكنك اضافه الى النص :
+
+• `#اسمك`   الاسم الاول
+• `#يوزرك`   اسم المستخدم
+• `#رسائلك`   عدد رسائل المستخدم
+• `#ايدي`   ايدي المستخدم
+• `#رتبتك`   موقع المستخدم
+• `#تعديلاتك`   عدد السحكات 
+*•●○●○●○●•ٴ*
+𝘊𝘩 - [𝘯𝘪𝘨𝘨𝘢](http://t.me/NiGGa_SoUrcE)•
+]]
+send(msg.chat_id_, msg.id_,Text)
 database:set(bot_id.."Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true1")
 database:set(bot_id.."Text:Manager"..msg.sender_user_id_..":"..msg.chat_id_, text)
 database:del(bot_id.."Add:Rd:Manager:Gif"..text..msg.chat_id_)   
@@ -4975,12 +4995,12 @@ local NumMsg = database:get(bot_id..'messageUser'..msg.chat_id_..':'..msg.sender
 local TotalMsg = Total_message(NumMsg)
 local Status_Gps = Get_Rank(msg.sender_user_id_,msg.chat_id_)
 local message_edit = database:get(bot_id..'message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
-local Text = Text:gsub('#username',(data.username_ or 'لا يوجد')) 
-local Text = Text:gsub('#name',data.first_name_)
-local Text = Text:gsub('#id',msg.sender_user_id_)
-local Text = Text:gsub('#edit',message_edit)
-local Text = Text:gsub('#msgs',NumMsg)
-local Text = Text:gsub('#stast',Status_Gps)
+local Text = Text:gsub('#يوزرك',(data.username_ or 'لا يوجد')) 
+local Text = Text:gsub('#اسمك',data.first_name_)
+local Text = Text:gsub('#ايدي',msg.sender_user_id_)
+local Text = Text:gsub('#تعديلاتك',message_edit)
+local Text = Text:gsub('#رسائلك',NumMsg)
+local Text = Text:gsub('#رتبتك',Status_Gps)
 send(msg.chat_id_, msg.id_,'['..Text..']')
 database:sadd(bot_id.."Spam:Group"..msg.sender_user_id_,text) 
 end,nil)
@@ -5118,7 +5138,22 @@ return false
 end
 if text and text:match("^(.*)$") then
 if database:get(bot_id.."Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
-send(msg.chat_id_, msg.id_, '• الان ارسل الرد الذي تريد اضافته \n•  قد يكون (ملف - فديو - نص - ملصق - بصمه - متحركه )\n•  يمكنك اضافه الى النص :\n- `#username` > اسم المستخدم\n- `#msgs` > عدد رسائل المستخدم\n- `#name` > اسم المستخدم\n- `#id` > ايدي المستخدم\n- `#stast` > موقع المستخدم \n- `#edit` > عدد السحكات ')
+local Text= [[
+> NIGGA
+• لان ارسل الرد الذي تريد اضافته 
+•  قد يكون (ملف - فديو - نص - ملصق - بصمه - متحركه )
+• يمكنك اضافه الى النص :
+
+• `#اسمك`   الاسم الاول
+• `#يوزرك`   اسم المستخدم
+• `#رسائلك`   عدد رسائل المستخدم
+• `#ايدي`   ايدي المستخدم
+• `#رتبتك`   موقع المستخدم
+• `#تعديلاتك`   عدد السحكات 
+*•●○●○●○●•ٴ*
+𝘊𝘩 - [𝘯𝘪𝘨𝘨𝘢](http://t.me/NiGGa_SoUrcE)•
+]]
+send(msg.chat_id_, msg.id_,Text)
 database:set(bot_id.."Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_, "true1")
 database:set(bot_id.."Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_, text)
 database:sadd(bot_id.."List:Rd:Sudo", text)
@@ -5152,12 +5187,12 @@ local NumMsg = database:get(bot_id..'messageUser'..msg.chat_id_..':'..msg.sender
 local TotalMsg = Total_message(NumMsg)
 local Status_Gps = Get_Rank(msg.sender_user_id_,msg.chat_id_)
 local message_edit = database:get(bot_id..'message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
-local Text = Text:gsub('#username',(data.username_ or 'لا يوجد')) 
-local Text = Text:gsub('#name',data.first_name_)
-local Text = Text:gsub('#id',msg.sender_user_id_)
-local Text = Text:gsub('#edit',message_edit)
-local Text = Text:gsub('#msgs',NumMsg)
-local Text = Text:gsub('#stast',Status_Gps)
+local Text = Text:gsub('#يوزرك',(data.username_ or 'لا يوجد')) 
+local Text = Text:gsub('#اسمك',data.first_name_)
+local Text = Text:gsub('#ايدي',msg.sender_user_id_)
+local Text = Text:gsub('#تعديلاتك',message_edit)
+local Text = Text:gsub('#رسائلك',NumMsg)
+local Text = Text:gsub('#رتبتك',Status_Gps)
 send(msg.chat_id_, msg.id_,Text)
 database:sadd(bot_id.."Spam:Group"..msg.sender_user_id_,text) 
 end,nil)
@@ -7822,6 +7857,21 @@ return false
 end
 end ---- Chat_Type = 'GroupBot' 
 end ---- Chat_Type = 'GroupBot' 
+if text == "اضف كت تويت" and DevBot(msg) then
+database:set(bot_id.."gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
+return send(msg.chat_id_, msg.id_,"ارسل السؤال الان ")
+end
+if text == "حذف كت تويت" and DevBot(msg) then
+database:del(bot_id.."gamebot:List:Manager")
+return send(msg.chat_id_, msg.id_,"تم حذف الاسئله")
+end
+if text and text:match("^(.*)$") then
+if database:get(bot_id.."gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
+send(msg.chat_id_, msg.id_, '\nتم حفظ السؤال بنجاح')
+database:set(bot_id.."gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true1uu")
+database:sadd(bot_id.."gamebot:List:Manager", text)
+return false end
+end
 if text == 'تفعيل' and DevBot(msg) then 
 if msg.can_be_deleted_ == false then 
 send(msg.chat_id_, msg.id_,'• البوت ليس ادمن يرجى ترقيتي !') 
