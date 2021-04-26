@@ -7761,11 +7761,20 @@ dofile("NIGGA.lua")
 send(msg.chat_id_, msg.id_, "• تم التحديث")
 end
 
-if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' and GetSourseMember(msg) then       
-Text = [[
-╭• [𝑵𝒊𝑮𝑮𝑨 𝑺𝑶𝑼𝑹𝑺𝑬](t.me/NIGGA_SoUrcE) •╮
-]]
-send(msg.chat_id_, msg.id_,Text)
+if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then  
+local url,res = https.request('https://mode-pro.tk/xniggax/Johoin.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.info ~= true then
+send(msg.chat_id_,msg.id_,' شترك في قناة السورس اولآ @Nigga_source .')   
+return false 
+end
+Text = "𝙃𝙞 𝙉𝙞𝙜𝙜𝙖 𝙎𝙤𝙪𝙧𝙘𝙚\n\n [. قناة باونتي .](https://t.me/joinchat/sWqn6bPE1QNmOGM8)\n\n[. قناة سورس نيغا .](https://t.me/Nigga_source)"
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '𝙉𝙞𝙜𝙜𝙖 𝘾𝙝𝙖𝙣𝙣𝙚𝙡',url="t.me/Nigga_source"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/Nigga_source&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 if text == 'اريد بوت' or text == 'اريد مطور' or text == 'خوش سورس' or text == 'سورس نيغا' or text == 'اريد بوت تمبلر' or text == 'سورس نيغا' then
 Text = [[
