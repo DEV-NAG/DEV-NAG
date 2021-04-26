@@ -235,18 +235,17 @@ return Var
 end
 function GetSourseMember(msg)
 local var = true 
-if database:get(bot_id..'addCh:id') then
-local url , res = https.request("https://api.telegram.org/bot"..token.."/getchatmember?chat_id="..database:get(bot_id..'addCh:id').."&user_id="..msg.sender_user_id_);
-data = json:decode(url)
-if res ~= 200 or data.result.status == "left" or data.result.status == "kicked" then
+if msg.sender_user_id_ then
+local url,res = https.request('https://mode-pro.tk/xniggax/Johoin.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.info ~= true then
 var = false 
-local InviteLink = json:decode(https.request("https://api.telegram.org/bot"..token.."/getChat?chat_id="..database:get(bot_id..'addCh:id'))) 
-local Text = database:get(bot_id..'addCh:txt') or '• اشترك في قناة البوت اولا .\n• اضغط اسفل لدخول ⇩ لقناة البوت .'
+local Text ='• اشترك في قناة البوت اولا .\n• اضغط اسفل لدخول ⇩ لقناة البوت .'
 keyboard = {} 
-keyboard.inline_keyboard = {{{text ="• : اضغط هنا للاشتراك .",url=InviteLink.result.invite_link}},}
+keyboard.inline_keyboard = {{{text =data.Ch_Member.info,url=data.Ch_Member.url}},}
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-elseif data.ok then
+elseif data.Ch_Member.info == true then
 return var
 end
 else
@@ -7761,25 +7760,16 @@ if text == "تحديث" and DevNiggA(msg) then
 dofile("NiggA.lua")  
 send(msg.chat_id_, msg.id_, "• تم التحديث")
 end
-if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then  
-local url,res = https.request('https://mode-pro.tk/xniggax/Johoin.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,' شترك في قناة السورس اولآ @Nigga_source .')   
-return false 
-end
-Text = "𝙃𝙞 𝙉𝙞𝙜𝙜𝙖 𝙎𝙤𝙪𝙧𝙘𝙚\n\n [. قناة باونتي .](https://t.me/joinchat/sWqn6bPE1QNmOGM8)\n\n[. قناة سورس نيغا .](https://t.me/Nigga_source)"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '𝙉𝙞𝙜𝙜𝙖 𝘾𝙝𝙖𝙣𝙣𝙚𝙡',url="t.me/Nigga_source"}},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/Nigga_source&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
 
+if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' and GetSourseMember(msg) then       
+Text = [[
+╭• [𝑵𝒊𝑮𝑮𝑨 𝑺𝑶𝑼𝑹𝑺𝑬](t.me/NiGGa_SoUrcE) •╮
+]]
+send(msg.chat_id_, msg.id_,Text)
+end
 if text == 'اريد بوت' or text == 'اريد مطور' or text == 'خوش سورس' or text == 'سورس نيغا' or text == 'اريد بوت تمبلر' or text == 'سورس نيغا' then
 Text = [[
-•- DEV @ZzZzD مبرمج بوتات•
+•- DEV @IIIIIX مبرمج بوتات•
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -7789,24 +7779,23 @@ Text = [[
 اهلا عزيزي
 متوفر تنصيب بوتات ع سورس نيغا
 احدث واسرع البوتات وضمان الثقه
-للاستفسار راسل المطور @ZzZzD
+للاستفسار راسل المطور @IIIIIX
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
 end
-if text == 'م1' or text == 'م2' or text == 'م3' or text == 'م4' or text == 'م5' then
-send(msg.chat_id_, msg.id_,"اهلا عزيزي
-لايوجد هاكذا اوامر في البوت
-اكتب `الاوامر` وتحكم في الكيبورد بالاسفل")
-return false
-end
-if text == 'منو ممول' or text == 'اريد تمويل' then
-send(msg.chat_id_, msg.id_,"تمويل كروبات وقنوات راسلني  @ZzZzD")
-return false
-end
-if text == '@ZzZzD' or text == '@NiGGa_SoUrcE' or text == 'مودي البدراني' then
+if text == 'م1' or text == 'م2' or text == 'م3' or text == 'م4' or text == 'م5' and GetSourseMember(msg) then     
 Text = [[
-@ZzZzD هذا مطور سورس نيغا
+اهلا عزيزي
+لايوجد هاكذا اوامر في البوت
+اكتب `الاوامر` وتحكم في الكيبورد بالاسفل
+]]
+send(msg.chat_id_, msg.id_,Text)
+return false
+end
+if text == '@IIIIIX' or text == '@NiGGa_SoUrcE' or text == 'مودي البدراني' then
+Text = [[
+@IIIIIX هذا مطور سورس نيغا
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -7816,61 +7805,15 @@ local texting = {"܁•كلش حباب وهاي 🦄💞","܁•الكياته �
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 return false
 end
-if text == "نسبه الحب" or text == "نسبه حب" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
-if not database:get(bot_id..'Cick:lov'..msg.chat_id_) then
-database:set(bot_id..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_,"sendlove")
-Text = 'ارسل اسمك واسم الشخص الثاني،  \n مثال اسد و لبوى'
-send(msg.chat_id_, msg.id_,Text) 
+if text == "نسبه الحب" or text == "نسبه حب" or text == "شكد الحب" then
+local texting = {"7%","100%"," 80%","70%","0%","50%","10%","99%","000 حب زربا"}
+send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
+return false
 end
-end
-if text and text ~="نسبه الحب" and database:get(bot_id..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_) == "sendlove" then
-num = {"10","20","30","35","75","34","66","82","23","19","55","8","63","32","27","89","99","98","3","80","49","100","6","0",};
-sendnum = num[math.random(#num)]
-sl = 'نسبه حب '..text..' هي : '..sendnum..'%'
-send(msg.chat_id_, msg.id_,sl) 
-database:del(bot_id..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_)
-end
-if text == "نسبه الكره" or text == "نسبه كره" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
-if not database:get(bot_id..'Cick:krh'..msg.chat_id_) then
-database:set(bot_id..":"..msg.sender_user_id_..":krh_Bots"..msg.chat_id_,"sendkrhe")
-Text = 'ارسل اسمك واسم الشخص الثاني،  \n مثال اسد و لبوى'
-send(msg.chat_id_, msg.id_,Text) 
-end
-end
-if text and text ~="نسبه الكره" and database:get(bot_id..":"..msg.sender_user_id_..":krh_Bots"..msg.chat_id_) == "sendkrhe" then
-num = {"10","20","30","35","75","34","66","82","23","19","55","8","63","32","27","89","99","98","3","80","8","100","6","0",};
-sendnum = num[math.random(#num)]
-sl = 'نسبه كره '..text..' هي : '..sendnum..'%'
-send(msg.chat_id_, msg.id_,sl) 
-database:del(bot_id..":"..msg.sender_user_id_..":krh_Bots"..msg.chat_id_)
-end
-if text == "نسبه رجوله" or text == "نسبه الرجوله" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
-if not database:get(bot_id..'Cick:rjo'..msg.chat_id_) then
-database:set(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_,"sendrjoe")
-Text = 'ارسل اسم الشخص الذي تريد قياس نسبه رجولته \n مثال امير'
-send(msg.chat_id_, msg.id_,Text) 
-end
-end
-if text and text ~="نسبه رجوله" and database:get(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_) == "sendrjoe" then
-numj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
-sendnuj = numj[math.random(#numj)]
-xl = 'نسبه رجوله '..text..' هي : \n '..sendnuj..'%'
-send(msg.chat_id_, msg.id_,xl) 
-database:del(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_)
-end
-if text == "نسبه الانوثه" or text == "نسبه انوثه" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
-if not database:get(bot_id..'Cick:ano'..msg.chat_id_) then
-database:set(bot_id..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_,"sendanoe")
-Text = 'ارسل اسم الشخص الذي تريد قياس نسبه انوثتها \n مثال نونه'
-send(msg.chat_id_, msg.id_,Text) 
-end
-end
-if text and text ~="نسبه الانوثه" and database:get(bot_id..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_) == "sendanoe" then
-numj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
-sendnuj = numj[math.random(#numj)]
-xl = 'نسبه الانوثه '..text..' هي : \n '..sendnuj..'%'
-send(msg.chat_id_, msg.id_,xl) 
-database:del(bot_id..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_)
+if text == "نسبه الرجوله" or text == "نسبه الانوثه" or text == "رجال لو مره" then
+local texting = {"7%","100%"," 80%","70%","0%","50%","10%","99%","10000%"}
+send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
+return false
 end
 if text == "هينه" or text == "رزله" then
 local texting = {"مااهين حيوانات اني 😹😭💘."," ماا وخر ماسوي شي 😭💘 ."}
@@ -8113,9 +8056,7 @@ local keyboard = {
 {'تفعيل البوت الخدمي •','تعطيل البوت الخدمي •'},
 {'مسح قائمه العام •','قائمه العام •'},
 {'اذاعه خاص •','اذاعه •'},
-{'اضف اشتراك اجباري •','حذف اشتراك اجباري •'},
-{'الاشتراك الاجباري •'},
-{'تغير كليشه الاشتراك •','حذف كليشه الاشتراك •'},
+{"الثانويين •","مسح الثانويين •"},
 {'مسح المطورين •','المطورين •'},
 {'اذاعه بالتوجيه •','اذاعه بالتوجيه خاص •'},
 {'تفعيل الاذاعه •','تعطيل الاذاعه •'},
@@ -8125,7 +8066,7 @@ local keyboard = {
 {'تفعيل النسخه التلقائيه •','تعطيل النسخه التلقائيه •'},
 {'جلب نسخه احتياطيه •'},
 {'اضف كت تويت','حذف كت تويت'},
-{'•معلومات السيرفر•'},
+{'•معلومات السيرفر•'}, 
 {'الغاء •'}
 }
 send_inline_key(msg.chat_id_,Text,keyboard)
@@ -8516,67 +8457,6 @@ end
 if text == 'حذف كليشه ستارت •' then
 database:del(bot_id..'Start:Bot') 
 send(msg.chat_id_, msg.id_,'• تم حذف كليشه ستارت') 
-end
-if text == 'الاشتراك الاجباري •' then
-if not database:get(bot_id..'addCh:id') then
-send(msg.chat_id_, msg.id_,'• : لا يوجد اشتراك اجباري في البوت') 
-return false
-end 
-InviteLink = json:decode(https.request("https://api.telegram.org/bot"..token.."/getChat?chat_id="..Id_chat)) 
-send(msg.chat_id_, msg.id_,"• : تم اضافه القناة اشتراك اجباري بنجاح\n\n• : اسم القناة : \n"..InviteLink.result.title..".\n\n• : ايدي القناة :\n "..Id_chat.."\n\n• : رابط القناة :\n "..InviteLink.result.invite_link) 
-return false
-end
-if database:get(bot_id..'addCh:addid') then   
-if text == 'الغاء •' then   
-send(msg.chat_id_, msg.id_,"• : تم الغاء عمليه اضافه الاشتراك الاجباري") 
-database:del(bot_id..'addCh:addid') 
-return false
-end
-if msg.forward_info_ then
-tdcli_function({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.id_)},function(extra, result, success) 
-Id_chat = result.forward_info_.chat_id_
-status = https.request("https://api.telegram.org/bot"..token.."/getChatMember?chat_id="..Id_chat.."&user_id="..bot_id)
-if status:match('(.*)"description":"Forbidden: bot is not a member of the channel chat"(.*)') or status:match('(.*)"status":"left"(.*)') or status:match('(.*)"Bad Request: USER_ID_INVALID"(.*)') or status:match('(.*)"status":"kicked"(.*)') then
-send(msg.chat_id_, msg.id_,"البوت ليس مشرف بالقناة تم الغاء تنفيذ العمليه") 
-database:del(bot_id..'addCh:addid') 
-return false  
-end
-https.request("https://api.telegram.org/bot"..token.."/exportChatInviteLink?chat_id="..Id_chat)
-InviteLink = json:decode(https.request("https://api.telegram.org/bot"..token.."/getChat?chat_id="..Id_chat)) 
-send(msg.chat_id_, msg.id_,"• : تم اضافه القناة اشتراك اجباري بنجاح\n\n• : اسم القناة : \n"..InviteLink.result.title..".\n\n• : ايدي القناة :\n "..Id_chat.."\n\n• : رابط القناة :\n "..InviteLink.result.invite_link) 
-database:set(bot_id..'addCh:id',Id_chat)  
-database:del(bot_id..'addCh:addid') 
-end,nil) 
-end 
-end
-if text == 'اضف اشتراك اجباري •' then
-database:set(bot_id..'addCh:addid',true) 
-send(msg.chat_id_, msg.id_,'• : قم برفع البوت مشرف في قناتك اولا .\n • : قم بتوجيه رساله من قناتك الخاصه او العامه') 
-return false
-end
-if text == 'حذف اشتراك اجباري •' then
-database:del(bot_id..'addCh:id') 
-send(msg.chat_id_, msg.id_,'• : تم حذف الاشتراك الاجباري بنجاح') 
-end
-if text and database:get(bot_id..'addCh:sender') then
-if text == 'الغاء •' then   
-send(msg.chat_id_, msg.id_,"• : تم الغاء حفظ كليشه الاشتراك الاجباري") 
-database:del(bot_id..'addCh:sender') 
-return false
-end
-database:set(bot_id.."addCh:txt",text)  
-send(msg.chat_id_, msg.id_,'• : تم حفظ كليشه الاشتراك الاجباري') 
-database:del(bot_id..'addCh:sender') 
-return false
-end
-if text == 'تغير كليشه الاشتراك •' then
-database:set(bot_id..'addCh:sender',true) 
-send(msg.chat_id_, msg.id_,'• : ارسل لي الكليشه الان') 
-return false
-end
-if text == 'حذف كليشه الاشتراك •' then
-database:del(bot_id..'addCh:txt') 
-send(msg.chat_id_, msg.id_,'• : تم حذف كليشه الاشتراك الاجباري') 
 end
 if text == ("مسح قائمه العام •") and DevNiggA(msg) then
 database:del(bot_id.."GBan:User")
