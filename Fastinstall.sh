@@ -4,7 +4,7 @@ rm -rf $HOME/.telegram-cli
 install() {
 rm -rf $HOME/.telegram-cli
 sudo chmod +x tg
-chmod +x NIGGA
+chmod +x Run
 chmod +x NG
 ./NG
 }
