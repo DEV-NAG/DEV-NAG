@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
-cd $HOME/NiggA
+cd $HOME/NIGGA
 install() {
 rm -rf $HOME/.telegram-cli
 sudo chmod +x tg
-chmod +x NiggA
+chmod +x NIGGA
 chmod +x NG
 ./NG
 }
 get() {
-rm -fr NiggA.lua
+rm -fr NIGGA.lua
 rm -fr sudo.lua
-wget "https://raw.githubusercontent.com/DEV-NAG/DEV-NAG/main/NiggA.lua"
+wget "https://raw.githubusercontent.com/DEV-NAG/DEV-NAG/main/NIGGA.lua"
 lua start.lua
 }
 installall(){
@@ -48,7 +48,7 @@ fi
 installall
 cd ..
 rm -rf luarocks*
-cd NiggA
+cd NIGGA
 rm -rf luarocks*
 lua start.lua
 
