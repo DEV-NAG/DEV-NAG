@@ -241,24 +241,20 @@ Var = false
 end
 return Var
 end
-function GetSourseMember(msg)
-local var = true 
-if msg.sender_user_id_ then
-local url,res = https.request('https://mode-pro.tk/xNIGGAx/Johoin.php?id='..msg.sender_user_id_)
+function GetSourseMember(msg) 
+local url,res = https.request('https://mode-pro.tk/xniggax/Johoin.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
-var = false 
+Var = false
 local Text ='• اشترك في قناة البوت اولا .\n• اضغط اسفل لدخول ⇩ لقناة البوت .'
 keyboard = {} 
 keyboard.inline_keyboard = {{{text =data.Ch_Member.info,url=data.Ch_Member.url}},}
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-elseif data.Ch_Member.info == true then
-return var
-end
 else
-return var
+Var = true
 end
+return Var
 end
 function send(chat_id, reply_to_message_id, text)
 local TextParseMode = {ID = "TextParseModeMarkdown"}
