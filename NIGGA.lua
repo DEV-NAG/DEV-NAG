@@ -235,17 +235,18 @@ return Var
 end
 function GetSourseMember(msg)
 local var = true 
-if msg.sender_user_id_ then
-local url,res = https.request('https://mode-pro.tk/xNIGGAx/Johoin.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
+if database:get(bot_id..'addCh:id') then
+local url , res = https.request("https://api.telegram.org/bot"..token.."/getchatmember?chat_id="..database:get(bot_id..'addCh:id').."&user_id="..msg.sender_user_id_);
+data = json:decode(url)
+if res ~= 200 or data.result.status == "left" or data.result.status == "kicked" then
 var = false 
-local Text ='• اشترك في قناة البوت اولا .\n• اضغط اسفل لدخول ⇩ لقناة البوت .'
+local InviteLink = json:decode(https.request("https://api.telegram.org/bot"..token.."/getChat?chat_id="..database:get(bot_id..'addCh:id'))) 
+local Text = database:get(bot_id..'addCh:txt') or '• اشترك في قناة البوت اولا .\n• اضغط اسفل لدخول ⇩ لقناة البوت .'
 keyboard = {} 
-keyboard.inline_keyboard = {{{text =data.Ch_Member.info,url=data.Ch_Member.url}},}
+keyboard.inline_keyboard = {{{text ="• : اضغط هنا للاشتراك .",url=InviteLink.result.invite_link}},}
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-elseif data.Ch_Member.info == true then
+elseif data.ok then
 return var
 end
 else
@@ -8056,7 +8057,9 @@ local keyboard = {
 {'تفعيل البوت الخدمي •','تعطيل البوت الخدمي •'},
 {'مسح قائمه العام •','قائمه العام •'},
 {'اذاعه خاص •','اذاعه •'},
-{"الثانويين •","مسح الثانويين •"},
+{'اضف اشتراك اجباري •','حذف اشتراك اجباري •'},
+{'الاشتراك الاجباري •'},
+{'تغير كليشه الاشتراك •','حذف كليشه الاشتراك •'},
 {'مسح المطورين •','المطورين •'},
 {'اذاعه بالتوجيه •','اذاعه بالتوجيه خاص •'},
 {'تفعيل الاذاعه •','تعطيل الاذاعه •'},
@@ -8066,7 +8069,7 @@ local keyboard = {
 {'تفعيل النسخه التلقائيه •','تعطيل النسخه التلقائيه •'},
 {'جلب نسخه احتياطيه •'},
 {'اضف كت تويت','حذف كت تويت'},
-{'•معلومات السيرفر•'}, 
+{'•معلومات السيرفر•'},
 {'الغاء •'}
 }
 send_inline_key(msg.chat_id_,Text,keyboard)
@@ -8457,6 +8460,67 @@ end
 if text == 'حذف كليشه ستارت •' then
 database:del(bot_id..'Start:Bot') 
 send(msg.chat_id_, msg.id_,'• تم حذف كليشه ستارت') 
+end
+if text == 'الاشتراك الاجباري •' then
+if not database:get(bot_id..'addCh:id') then
+send(msg.chat_id_, msg.id_,'• : لا يوجد اشتراك اجباري في البوت') 
+return false
+end 
+InviteLink = json:decode(https.request("https://api.telegram.org/bot"..token.."/getChat?chat_id="..Id_chat)) 
+send(msg.chat_id_, msg.id_,"• : تم اضافه القناة اشتراك اجباري بنجاح\n\n• : اسم القناة : \n"..InviteLink.result.title..".\n\n• : ايدي القناة :\n "..Id_chat.."\n\n• : رابط القناة :\n "..InviteLink.result.invite_link) 
+return false
+end
+if database:get(bot_id..'addCh:addid') then   
+if text == 'الغاء •' then   
+send(msg.chat_id_, msg.id_,"• : تم الغاء عمليه اضافه الاشتراك الاجباري") 
+database:del(bot_id..'addCh:addid') 
+return false
+end
+if msg.forward_info_ then
+tdcli_function({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.id_)},function(extra, result, success) 
+Id_chat = result.forward_info_.chat_id_
+status = https.request("https://api.telegram.org/bot"..token.."/getChatMember?chat_id="..Id_chat.."&user_id="..bot_id)
+if status:match('(.*)"description":"Forbidden: bot is not a member of the channel chat"(.*)') or status:match('(.*)"status":"left"(.*)') or status:match('(.*)"Bad Request: USER_ID_INVALID"(.*)') or status:match('(.*)"status":"kicked"(.*)') then
+send(msg.chat_id_, msg.id_,"البوت ليس مشرف بالقناة تم الغاء تنفيذ العمليه") 
+database:del(bot_id..'addCh:addid') 
+return false  
+end
+https.request("https://api.telegram.org/bot"..token.."/exportChatInviteLink?chat_id="..Id_chat)
+InviteLink = json:decode(https.request("https://api.telegram.org/bot"..token.."/getChat?chat_id="..Id_chat)) 
+send(msg.chat_id_, msg.id_,"• : تم اضافه القناة اشتراك اجباري بنجاح\n\n• : اسم القناة : \n"..InviteLink.result.title..".\n\n• : ايدي القناة :\n "..Id_chat.."\n\n• : رابط القناة :\n "..InviteLink.result.invite_link) 
+database:set(bot_id..'addCh:id',Id_chat)  
+database:del(bot_id..'addCh:addid') 
+end,nil) 
+end 
+end
+if text == 'اضف اشتراك اجباري •' then
+database:set(bot_id..'addCh:addid',true) 
+send(msg.chat_id_, msg.id_,'• : قم برفع البوت مشرف في قناتك اولا .\n • : قم بتوجيه رساله من قناتك الخاصه او العامه') 
+return false
+end
+if text == 'حذف اشتراك اجباري •' then
+database:del(bot_id..'addCh:id') 
+send(msg.chat_id_, msg.id_,'• : تم حذف الاشتراك الاجباري بنجاح') 
+end
+if text and database:get(bot_id..'addCh:sender') then
+if text == 'الغاء •' then   
+send(msg.chat_id_, msg.id_,"• : تم الغاء حفظ كليشه الاشتراك الاجباري") 
+database:del(bot_id..'addCh:sender') 
+return false
+end
+database:set(bot_id.."addCh:txt",text)  
+send(msg.chat_id_, msg.id_,'• : تم حفظ كليشه الاشتراك الاجباري') 
+database:del(bot_id..'addCh:sender') 
+return false
+end
+if text == 'تغير كليشه الاشتراك •' then
+database:set(bot_id..'addCh:sender',true) 
+send(msg.chat_id_, msg.id_,'• : ارسل لي الكليشه الان') 
+return false
+end
+if text == 'حذف كليشه الاشتراك •' then
+database:del(bot_id..'addCh:txt') 
+send(msg.chat_id_, msg.id_,'• : تم حذف كليشه الاشتراك الاجباري') 
 end
 if text == ("مسح قائمه العام •") and DevNIGGA(msg) then
 database:del(bot_id.."GBan:User")
