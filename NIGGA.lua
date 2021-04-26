@@ -27,10 +27,10 @@ port :: ]]..port..[[
 
 time ::]]..Rtime.."\27[m")
 
-io.popen("mkdir NiggA_Files")
+io.popen("mkdir NIGGA_Files")
 t = "\27[35m".."\nAll Files Started : \n____________________\n"..'\27[m'
 i = 0
-for v in io.popen('ls NiggA_Files'):lines() do
+for v in io.popen('ls NIGGA_Files'):lines() do
 if v:match(".lua$") then
 i = i + 1
 t = t.."\27[39m"..i.."\27[36m".." - \27[10;32m"..v..",\27[m \n"
@@ -42,17 +42,17 @@ print(serpent.block(value, {comment=false}))
 end 
 function dl_cb(t,s)
 end
-function DevNiggAe(user)  
-local Taha_Sudo = false  
+function DevNIGGAe(user)  
+local Sv_Sudo = false  
 for k,v in pairs(List_Sudos) do  
 if user == v then  
-Taha_Sudo = true  
+Sv_Sudo = true  
 end  
 end  
-return Taha_Sudo  
+return Sv_Sudo  
 end 
 
-function NiggADevSou(msg)  
+function NIGGADevSou(msg)  
 local h_Sudo = false  
 for k,v in pairs(List_Sudos) do  
 if msg.sender_user_id_ == v then  
@@ -61,9 +61,9 @@ end
 end  
 return h_Sudo  
 end 
-function DevNiggA(msg) 
+function DevNIGGA(msg) 
 local hash = database:sismember(bot_id.."DEV:Sudo:T", msg.sender_user_id_) 
-if hash or NiggADevSou(msg) then  
+if hash or NIGGADevSou(msg) then  
 return true  
 else  
 return false  
@@ -78,7 +78,7 @@ return idbot
 end
 function DevBot(msg) 
 local hash = database:sismember(bot_id.."Sudo:User", msg.sender_user_id_) 
-if hash or Bot(msg) or DevNiggA(msg) or NiggADevSou(msg) then    
+if hash or Bot(msg) or DevNIGGA(msg) or NIGGADevSou(msg) then    
 return true  
 else  
 return false  
@@ -86,7 +86,7 @@ end
 end
 function creatorA(msg)
 local hash = database:sismember(bot_id.."creator"..msg.chat_id_, msg.sender_user_id_) 
-if hash or DevNiggA(msg) or DevBot(msg) or NiggADevSou(msg) then     
+if hash or DevNIGGA(msg) or DevBot(msg) or NIGGADevSou(msg) then     
 return true 
 else 
 return false 
@@ -94,7 +94,7 @@ end
 end
 function BasicConstructor(msg)
 local hash = database:sismember(bot_id.."Basic:Constructor"..msg.chat_id_, msg.sender_user_id_) 
-if hash or DevNiggA(msg) or DevBot(msg) or NiggADevSou(msg) or creatorA(msg) then     
+if hash or DevNIGGA(msg) or DevBot(msg) or NIGGADevSou(msg) or creatorA(msg) then     
 return true 
 else 
 return false 
@@ -102,7 +102,7 @@ end
 end
 function Constructor(msg)
 local hash = database:sismember(bot_id.."Constructor"..msg.chat_id_, msg.sender_user_id_) 
-if hash or DevNiggA(msg) or DevBot(msg) or BasicConstructor(msg) or NiggADevSou(msg) or creatorA(msg) then             
+if hash or DevNIGGA(msg) or DevBot(msg) or BasicConstructor(msg) or NIGGADevSou(msg) or creatorA(msg) then             
 return true    
 else    
 return false    
@@ -110,7 +110,7 @@ end
 end
 function Owner(msg)
 local hash = database:sismember(bot_id.."Manager"..msg.chat_id_,msg.sender_user_id_)    
-if hash or DevNiggA(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or NiggADevSou(msg) or creatorA(msg) then             
+if hash or DevNIGGA(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or NIGGADevSou(msg) or creatorA(msg) then             
 return true    
 else    
 return false    
@@ -118,7 +118,15 @@ end
 end
 function Addictive(msg)
 local hash = database:sismember(bot_id.."Mod:User"..msg.chat_id_,msg.sender_user_id_)    
-if hash or DevNiggA(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or NiggADevSou(msg) or creatorA(msg) then             
+if hash or DevNIGGA(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or NIGGADevSou(msg) or creatorA(msg) then             
+return true    
+else    
+return false    
+end 
+end
+function cleaner(msg)
+local hash = database:sismember(bot_id.."cleaner"..msg.chat_id_,msg.sender_user_id_)    
+if hash or DevNIGGA(msg) or DevBot(msg) or BasicConstructor(msg) or NIGGADevSou(msg) or creatorA(msg) then             
 return true    
 else    
 return false    
@@ -126,18 +134,18 @@ end
 end
 function Vips(msg)
 local hash = database:sismember(bot_id.."Special:User"..msg.chat_id_,msg.sender_user_id_) 
-if hash or Bot(msg) or  DevNiggA(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or Addictive(msg) or NiggADevSou(msg) or creatorA(msg) then             
+if hash or Bot(msg) or  DevNIGGA(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or Addictive(msg) or NIGGADevSou(msg) or creatorA(msg) then             
 return true 
 else 
 return false 
 end 
 end
 function General_ban(user_id,chat_id)
-if DevNiggAe(user_id) == true then
+if DevNIGGAe(user_id) == true then
 var = true
-elseif DevNiggA(user_id) == true then
+elseif DevNIGGA(user_id) == true then
 var = true
-elseif NiggADevSou(user_id) == true then
+elseif NIGGADevSou(user_id) == true then
 var = true
 elseif Bot(user_id) == true then
 var = true
@@ -177,7 +185,7 @@ end
 function Get_Rank(user_id,chat_id)
 if tonumber(user_id) == tonumber(1423337662) then  
 var = 'مطور السورس'
-elseif DevNiggAe(user_id) == true then
+elseif DevNIGGAe(user_id) == true then
 var = "المطور الاساسي"  
 elseif tonumber(user_id) == tonumber(bot_id) then  
 var = "البوت"
@@ -236,7 +244,7 @@ end
 function GetSourseMember(msg)
 local var = true 
 if msg.sender_user_id_ then
-local url,res = https.request('https://mode-pro.tk/xniggax/Johoin.php?id='..msg.sender_user_id_)
+local url,res = https.request('https://mode-pro.tk/xNIGGAx/Johoin.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
 var = false 
@@ -500,7 +508,7 @@ end
 function Reply_Status(msg,user_id,status,text)
 tdcli_function ({ID = "GetUser",user_id_ = user_id},function(arg,data) 
 if data.first_name_ ~= false then
-local UserName = (data.username_ or "NiGGa_SoUrcE")
+local UserName = (data.username_ or "NIGGA_SoUrcE")
 local NameUser = "• بواسطه > ["..data.first_name_.."](T.me/"..UserName..")"
 local NameUserr = "• اسم المستخدم > ["..data.first_name_.."](T.me/"..UserName..")"
 local NameUserre = "*• الرتبه > *["..Get_Rank(user_id,msg.chat_id_).."](T.me/"..UserName..")"
@@ -775,18 +783,18 @@ database:sadd(bot_id.."Muted:User"..msg.chat_id_,msg.sender_user_id_)
 return false  
 end
 end  
-function NiggA_Files(msg)
-for v in io.popen('ls NiggA_Files'):lines() do
+function NIGGA_Files(msg)
+for v in io.popen('ls NIGGA_Files'):lines() do
 if v:match(".lua$") then
-plugin = dofile("NiggA_Files/"..v)
-if plugin.NiggA and msg then
-pre_msg = plugin.NiggA(msg)
+plugin = dofile("NIGGA_Files/"..v)
+if plugin.NIGGA and msg then
+pre_msg = plugin.NIGGA(msg)
 end
 end
 end
 send(msg.chat_id_, msg.id_,pre_msg)  
 end
-function NiggA_Started_Bot(msg,data) -- بداية العمل
+function NIGGA_Started_Bot(msg,data) -- بداية العمل
 if msg then
 local msg = data.message_
 local text = msg.content_.text_
@@ -1478,8 +1486,8 @@ end
 
 --------------------------------------------------------------------------------------------------------------
 if text and not Vips(msg) then  
-local NiggA_Msg = database:sismember(bot_id.."List:Filter:text"..msg.chat_id_,text) 
-if NiggA_Msg then    
+local NIGGA_Msg = database:sismember(bot_id.."List:Filter:text"..msg.chat_id_,text) 
+if NIGGA_Msg then    
 Reply_Status(msg,msg.sender_user_id_,"reply","• الكلمه ممنوعه من المجموعه")  
 DeleteMessage(msg.chat_id_, {[0] = msg.id_})     
 return false
@@ -1557,7 +1565,7 @@ if k == 1 then
 local GetStart = io.popen('downloadsh '..vv.url):read('*all')
 if GetStart and GetStart:match('(.*)oksend(.*)') then
 print('download Mp3 done ...\nName : '..vv.title..'\nIdLink : '..vv.url)
-sendVoice(msg.chat_id_, msg.id_, 0, 1, nil,'./'..vv.url..'.mp3',vv.title,'- '..vv.title..'\n- @NiGGa_SoUrcE','@NiGGa_SoUrcE')  
+sendVoice(msg.chat_id_, msg.id_, 0, 1, nil,'./'..vv.url..'.mp3',vv.title,'- '..vv.title..'\n- @NIGGA_SoUrcE','@NIGGA_SoUrcE')  
 os.execute('rm -rf ./'..vv.url..'.mp3') 
 end
 end
@@ -1572,7 +1580,7 @@ if k == 1 then
 local GetStart = io.popen('downloadsh '..vv.url):read('*all')
 if GetStart and GetStart:match('(.*)oksend(.*)') then
 print('download Mp3 done ...\nName : '..vv.title..'\nIdLink : '..vv.url)
-sendAudio(msg.chat_id_,msg.id_,'./'..vv.url..'.mp3',vv.title,'- '..vv.title..'\n- @NiGGa_SoUrcE','@NiGGa_SoUrcE')
+sendAudio(msg.chat_id_,msg.id_,'./'..vv.url..'.mp3',vv.title,'- '..vv.title..'\n- @NIGGA_SoUrcE','@NIGGA_SoUrcE')
 os.execute('rm -rf ./'..vv.url..'.mp3') 
 end
 end
@@ -1604,7 +1612,7 @@ tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, o
 end
 if text == 'تفعيل الحمايه' and msg.reply_to_message_id_ == 0 and Addictive(msg) and GetSourseMember(msg) then   
 database:set(bot_id..'lock:tagrvrbot'..msg.chat_id_,true)   
-list ={"lock:Bot:kick","lock:user:name","lock:Link","lock:forward","lock:Sticker","lock:Animation","lock:Video","lock:Fshar","Bot:Id:Photo","lock:Audio","lock:vico","lock:Document","lock:Unsupported","lock:Markdaun","lock:Contact","lock:Spam"}
+list ={"Y:Ban:User:Time","lock:Bot:kick","lock:user:name","lock:Link","lock:forward","lock:Sticker","lock:Animation","lock:Video","lock:Fshar","Bot:Id:Photo","lock:Audio","lock:vico","lock:Document","lock:Unsupported","lock:Markdaun","lock:Contact","lock:Spam"}
 for i,lock in pairs(list) do 
 database:set(bot_id..lock..msg.chat_id_,'del')    
 end
@@ -1615,7 +1623,7 @@ end,nil)
 end
 if text == 'تعطيل الحمايه' and msg.reply_to_message_id_ == 0 and Addictive(msg) and GetSourseMember(msg) then   
 database:del(bot_id..'lock:tagrvrbot'..msg.chat_id_)   
-list ={"lock:Bot:kick","lock:user:name","lock:Link","lock:forward","lock:Sticker","lock:Animation","lock:Video","lock:Fshar","Bot:Id:Photo","lock:Audio","lock:vico","lock:Document","lock:Unsupported","lock:Markdaun","lock:Contact","lock:Spam"}
+list ={"Y:Ban:User:Time","lock:Bot:kick","lock:user:name","lock:Link","lock:forward","lock:Sticker","lock:Animation","lock:Video","lock:Fshar","Bot:Id:Photo","lock:Audio","lock:vico","lock:Document","lock:Unsupported","lock:Markdaun","lock:Contact","lock:Spam"}
 for i,lock in pairs(list) do 
 database:del(bot_id..lock..msg.chat_id_)    
 end
@@ -1624,32 +1632,32 @@ Reply_Status(msg,msg.sender_user_id_,"lock","• تم تعطيل الحمايه 
 return false
 end,nil)   
 end
-if text == "تفعيل المغادره" and DevNiggA(msg) then   
+if text == "تفعيل المغادره" and DevNIGGA(msg) then   
 database:del(bot_id.."Left:Bot"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"lock","• تم تفعيل مغادرة البوت") 
 return false
 end
-if text == "تعطيل المغادره" and DevNiggA(msg) then  
+if text == "تعطيل المغادره" and DevNIGGA(msg) then  
 database:set(bot_id.."Left:Bot"..msg.chat_id_,true)   
 Reply_Status(msg,msg.sender_user_id_,"lock","• تم تعطيل مغادرة البوت") 
 return false
 end
-if text == "تفعيل الاذاعه" and DevNiggA(msg) then  
+if text == "تفعيل الاذاعه" and DevNIGGA(msg) then  
 database:del(bot_id.."Status:Bc") 
 Reply_Status(msg,msg.sender_user_id_,"lock","• تم تفعيل الاذاعه " ) 
 return false
 end
-if text == "تعطيل الاذاعه" and DevNiggA(msg) then  
+if text == "تعطيل الاذاعه" and DevNIGGA(msg) then  
 database:set(bot_id.."Status:Bc",true) 
 Reply_Status(msg,msg.sender_user_id_,"lock","• تم تعطيل الاذاعه") 
 return false
 end
-if text == 'تفعيل البوت الخدمي' and DevNiggA(msg) then  
+if text == 'تفعيل البوت الخدمي' and DevNIGGA(msg) then  
 database:del(bot_id..'Free:Add:Bots') 
 Reply_Status(msg,msg.sender_user_id_,"lock",'• تم تفعيل البوت الخدمي ') 
 return false
 end
-if text == 'تعطيل البوت الخدمي' and DevNiggA(msg) then  
+if text == 'تعطيل البوت الخدمي' and DevNIGGA(msg) then  
 database:set(bot_id..'Free:Add:Bots',true) 
 Reply_Status(msg,msg.sender_user_id_,"lock",'• تم تعطيل البوت الخدمي') 
 return false
@@ -1824,9 +1832,19 @@ database:set(bot_id.."zhrf_Bots"..msg.chat_id_,"open")
 Reply_Status(msg,msg.sender_user_id_,"lock",'• تم تفعيل الزخرفه')
 return false
 end 
+if text == "تعطيل المسح التلقائي" and Owner(msg) and GetSourseMember(msg) then        
+database:set(bot_id.."y:msg:media"..msg.chat_id_)
+Reply_Status(msg,msg.sender_user_id_,"lock",'• تم تعطيل المسح التلقائي للميديا')
+return false
+end 
+if text == "تفعيل المسح التلقائي" and Owner(msg) and GetSourseMember(msg) then        
+database:set(bot_id.."y:msg:media"..msg.chat_id_,true)
+Reply_Status(msg,msg.sender_user_id_,"lock",'• تم تفعيل المسح التلقائي للميديا')
+return false
+end 
 if text == 'فتح السوبر' and msg.reply_to_message_id_ == 0 and Addictive(msg) and GetSourseMember(msg) then 
 database:del(bot_id..'lock:tajkervrbot'..msg.chat_id_)   
-list ={"lock:hashtak","lock:user:name","lock:Spam","lock:forward","lock:Cmd","lock:text","lock:Fshar","lock:Azag","lock:edit","lock:inline","lock:forward","lock:Keyboard"}
+list ={"Y:Ban:User:Time","lock:hashtak","lock:user:name","lock:Spam","lock:forward","lock:Cmd","lock:text","lock:Fshar","lock:Azag","lock:edit","lock:inline","lock:forward","lock:Keyboard"}
 for i,lock in pairs(list) do 
 database:del(bot_id..lock..msg.chat_id_)    
 end
@@ -1837,7 +1855,7 @@ end,nil)
 end
 if text == 'قفل السوبر' and msg.reply_to_message_id_ == 0 and Addictive(msg) and GetSourseMember(msg) then 
 database:set(bot_id..'lock:tajkervrbot'..msg.chat_id_,true)   
-list ={"lock:Bot:kick","lock:user:name","lock:hashtak","lock:Cmd","lock:Link","lock:forward","lock:Keyboard","lock:geam","lock:Photo","lock:Animation","lock:Video","lock:Audio","lock:vico","lock:Sticker","lock:Document","lock:Unsupported","lock:Markdaun","lock:Contact","lock:Spam"}
+list ={"Y:Ban:User:Time","lock:Bot:kick","lock:user:name","lock:hashtak","lock:Cmd","lock:Link","lock:forward","lock:Keyboard","lock:geam","lock:Photo","lock:Animation","lock:Video","lock:Audio","lock:vico","lock:Sticker","lock:Document","lock:Unsupported","lock:Markdaun","lock:Contact","lock:Spam"}
 for i,lock in pairs(list) do 
 database:set(bot_id..lock..msg.chat_id_,'del')    
 end
@@ -1895,7 +1913,7 @@ return false
 end 
 if text == "قفل الكل" and msg.reply_to_message_id_ == 0 and Constructor(msg) and GetSourseMember(msg) then   
 database:set(bot_id.."Lock:tagservrbot"..msg.chat_id_,true)   
-list ={"Lock:Bot:kick","Lock:User:Name","Lock:hashtak","Lock:Cmd","Lock:Link","Lock:forward","Lock:Keyboard","Lock:geam","Lock:Photo","Lock:Animation","Lock:Video","Lock:Audio","Lock:vico","Lock:Sticker","Lock:Document","Lock:Unsupported","Lock:Markdaun","Lock:Contact","Lock:Spam"}
+list ={"Y:Ban:User:Time","Lock:Bot:kick","Lock:User:Name","Lock:hashtak","Lock:Cmd","Lock:Link","Lock:forward","Lock:Keyboard","Lock:geam","Lock:Photo","Lock:Animation","Lock:Video","Lock:Audio","Lock:vico","Lock:Sticker","Lock:Document","Lock:Unsupported","Lock:Markdaun","Lock:Contact","Lock:Spam"}
 for i,lock in pairs(list) do 
 database:set(bot_id..''..lock..msg.chat_id_,"del")    
 end
@@ -1950,7 +1968,7 @@ return false
 end 
 if text == "فتح الكل" and msg.reply_to_message_id_ == 0 and Addictive(msg) and GetSourseMember(msg) then   
 database:del(bot_id.."Lock:tagservrbot"..msg.chat_id_)   
-list ={"Lock:Bot:kick","Lock:User:Name","Lock:hashtak","Lock:Cmd","Lock:Link","Lock:forward","Lock:Keyboard","Lock:geam","Lock:Photo","Lock:Animation","Lock:Video","Lock:Audio","Lock:vico","Lock:Sticker","Lock:Document","Lock:Unsupported","Lock:Markdaun","Lock:Contact","Lock:Spam"}
+list ={"Y:Ban:User:Time","Lock:Bot:kick","Lock:User:Name","Lock:hashtak","Lock:Cmd","Lock:Link","Lock:forward","Lock:Keyboard","Lock:geam","Lock:Photo","Lock:Animation","Lock:Video","Lock:Audio","Lock:vico","Lock:Sticker","Lock:Document","Lock:Unsupported","Lock:Markdaun","Lock:Contact","Lock:Spam"}
 for i,lock in pairs(list) do 
 database:del(bot_id..''..lock..msg.chat_id_)    
 end
@@ -2513,16 +2531,16 @@ end,nil)
 send(msg.chat_id_, msg.id_, "*• تم مسح المالكين*")
 end
 if text == ("رفع مالك") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then  
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 database:sadd(bot_id.."creator"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته مالك")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 return false
 end
 if text and text:match("^رفع مالك @(.*)$") and DevBot(msg) then  
 local username = text:match("^رفع مالك @(.*)$")
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
@@ -2534,7 +2552,7 @@ else
 send(msg.chat_id_, msg.id_,"*• لا يوجد حساب بهاذا المعرف*")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 return false
 end
 if text and text:match("^رفع مالك (%d+)$") and DevBot(msg) then  
@@ -2544,16 +2562,16 @@ Reply_Status(msg,userid,"reply","• تم ترقيته مالك")
 return false
 end
 if text == ("تنزيل مالك") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then  
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 database:srem(bot_id.."creator"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","*• تم تنزيله من المالكين*")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 return false
 end
 if text and text:match("^تنزيل مالك @(.*)$") and DevBot(msg) then  
 local username = text:match("^تنزيل مالك @(.*)$")
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."creator"..msg.chat_id_, result.id_)
 Reply_Status(msg,result.id_,"reply","• تم تنزيله من المالكين")  
@@ -2561,7 +2579,7 @@ else
 send(msg.chat_id_, msg.id_,"*• لا يوجد حساب بهاذا المعرف*")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 return false
 end
 if text and text:match("^تنزيل مالك (%d+)$") and DevBot(msg) then  
@@ -2570,17 +2588,17 @@ database:srem(bot_id.."creator"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","*• تم تنزيله من المالكين*")  
 return false
 end
-if text == ("رفع مطور ثانوي") and tonumber(msg.reply_to_message_id_) ~= 0 and NiggADevSou(msg) then
-function Function_NiggA(extra, result, success)
+if text == ("رفع مطور ثانوي") and tonumber(msg.reply_to_message_id_) ~= 0 and NIGGADevSou(msg) then
+function Function_NIGGA(extra, result, success)
 database:sadd(bot_id.."DEV:Sudo:T", result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته مطور ثانوي في البوت")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 return false 
 end
-if text and text:match("^رفع مطور ثانوي @(.*)$") and NiggADevSou(msg) then
+if text and text:match("^رفع مطور ثانوي @(.*)$") and NIGGADevSou(msg) then
 local username = text:match("^رفع مطور ثانوي @(.*)$")
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
@@ -2592,26 +2610,26 @@ else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 return false 
 end
-if text and text:match("^رفع مطور ثانوي (%d+)$") and NiggADevSou(msg) then
+if text and text:match("^رفع مطور ثانوي (%d+)$") and NIGGADevSou(msg) then
 local userid = text:match("^رفع مطور ثانوي (%d+)$")
 database:sadd(bot_id.."DEV:Sudo:T", userid)
 Reply_Status(msg,userid,"reply","• تم ترقيته مطور ثانوي في البوت")  
 return false 
 end
-if text == ("حذف مطور ثانوي") and tonumber(msg.reply_to_message_id_) ~= 0 and NiggADevSou(msg) then
-function Function_NiggA(extra, result, success)
+if text == ("حذف مطور ثانوي") and tonumber(msg.reply_to_message_id_) ~= 0 and NIGGADevSou(msg) then
+function Function_NIGGA(extra, result, success)
 database:srem(bot_id.."DEV:Sudo:T", result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم تنزيله من المطور ثانويين")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 return false 
 end
-if text and text:match("^حذف مطور ثانوي @(.*)$") and NiggADevSou(msg) then
+if text and text:match("^حذف مطور ثانوي @(.*)$") and NIGGADevSou(msg) then
 local username = text:match("^حذف مطور ثانوي @(.*)$")
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."DEV:Sudo:T", result.id_)
 Reply_Status(msg,result.id_,"reply","• تم تنزيله من المطور ثانويين")  
@@ -2619,16 +2637,16 @@ else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 return false
 end  
-if text and text:match("^حذف مطور ثانوي (%d+)$") and NiggADevSou(msg) then
+if text and text:match("^حذف مطور ثانوي (%d+)$") and NIGGADevSou(msg) then
 local userid = text:match("^حذف مطور ثانوي (%d+)$")
 database:srem(bot_id.."DEV:Sudo:T", userid)
 Reply_Status(msg,userid,"reply","• تم تنزيله من المطور ثانويين")  
 return false 
 end
-if text == ("الثانويين") and DevNiggA(msg) then
+if text == ("الثانويين") and DevNIGGA(msg) then
 local list = database:smembers(bot_id.."DEV:Sudo:T")
 t = "\n• قائمة مطورين الثانويين للبوت \n — — — — — — — — — \n"
 for k,v in pairs(list) do
@@ -2644,16 +2662,16 @@ t = "• لا يوجد مطورين ثانويين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("مسح الثانويين") and NiggADevSou(msg) then
+if text == ("مسح الثانويين") and NIGGADevSou(msg) then
 database:del(bot_id.."DEV:Sudo:T")
 send(msg.chat_id_, msg.id_, "\n•  تم مسح قائمة المطورين الثانويين  ")
 end
-if text == ("مسح قائمه العام") and DevNiggA(msg) then
+if text == ("مسح قائمه العام") and DevNIGGA(msg) then
 database:del(bot_id.."GBan:User")
 send(msg.chat_id_, msg.id_, "\n• تم مسح قائمه العام")
 return false
 end
-if text == ("مسح المطورين") and DevNiggA(msg) then
+if text == ("مسح المطورين") and DevNIGGA(msg) then
 database:del(bot_id.."Sudo:User")
 send(msg.chat_id_, msg.id_, "\n•  تم مسح قائمة المطورين  ")
 end
@@ -2672,6 +2690,11 @@ database:del(bot_id.."Manager"..msg.chat_id_)
 texts = "•  تم مسح المدراء "
 send(msg.chat_id_, msg.id_, texts)
 end
+if text == "مسح المنظفين" and BasicConstructor(msg) and GetSourseMember(msg) then 
+database:del(bot_id.."cleaner"..msg.chat_id_)
+texts = "•  تم مسح المنظفين "
+send(msg.chat_id_, msg.id_, texts)
+end
 if text == "مسح الادمنيه" and Owner(msg) and GetSourseMember(msg) then 
 database:del(bot_id.."Mod:User"..msg.chat_id_)
 send(msg.chat_id_, msg.id_, "🗑 :  تم مسح  قائمة الادمنية  ")
@@ -2688,7 +2711,7 @@ if text == "مسح المحظورين" and Addictive(msg) and GetSourseMember(ms
 database:del(bot_id.."Ban:User"..msg.chat_id_)
 send(msg.chat_id_, msg.id_, "\n• تم مسح المحظورين")
 end
-if text == ("قائمه العام") and DevNiggA(msg) then
+if text == ("قائمه العام") and DevNIGGA(msg) then
 local list = database:smembers(bot_id.."GBan:User")
 t = "\n• قائمة المحظورين عام \n — — — — — — — — — \n"
 for k,v in pairs(list) do
@@ -2705,7 +2728,7 @@ end
 send(msg.chat_id_, msg.id_, t)
 return false
 end
-if text == ("المطورين") and DevNiggA(msg) then
+if text == ("المطورين") and DevNIGGA(msg) then
 local list = database:smembers(bot_id.."Sudo:User")
 t = "\n• قائمة مطورين البوت \n — — — — — — — — — \n"
 for k,v in pairs(list) do
@@ -2834,8 +2857,8 @@ t = "• لا يوجد محظورين"
 end
 send(msg.chat_id_, msg.id_, t)
 end 
-if text == ("حظر عام") and tonumber(msg.reply_to_message_id_) ~= 0 and DevNiggA(msg) then
-function Function_NiggA(extra, result, success)
+if text == ("حظر عام") and tonumber(msg.reply_to_message_id_) ~= 0 and DevNIGGA(msg) then
+function Function_NIGGA(extra, result, success)
 if General_ban(result, result.chat_id_) == true then
 send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 else
@@ -2844,12 +2867,12 @@ Kick_Group(result.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم حظره عام من المجموعات")  
 end
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 return false
 end
-if text and text:match("^حظر عام @(.*)$")  and DevNiggA(msg) then
+if text and text:match("^حظر عام @(.*)$")  and DevNIGGA(msg) then
 local username = text:match("^حظر عام @(.*)$") 
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
@@ -2869,10 +2892,10 @@ else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 return false
 end
-if text and text:match("^حظر عام (%d+)$") and DevNiggA(msg) then
+if text and text:match("^حظر عام (%d+)$") and DevNIGGA(msg) then
 local userid = text:match("^حظر عام (%d+)$")
 if userid == tonumber(Id_Sudo) then
 send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت الاساسي \n")
@@ -2890,17 +2913,17 @@ database:sadd(bot_id.."GBan:User", userid)
 Reply_Status(msg,userid,"reply","• تم حظره عام من المجموعات")  
 return false
 end
-if text == ("الغاء العام") and tonumber(msg.reply_to_message_id_) ~= 0 and DevNiggA(msg) then
-function Function_NiggA(extra, result, success)
+if text == ("الغاء العام") and tonumber(msg.reply_to_message_id_) ~= 0 and DevNIGGA(msg) then
+function Function_NIGGA(extra, result, success)
 database:srem(bot_id.."GBan:User", result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم الغاء حظره عام من المجموعات")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 return false
 end
-if text and text:match("^الغاء العام @(.*)$") and DevNiggA(msg) then
+if text and text:match("^الغاء العام @(.*)$") and DevNIGGA(msg) then
 local username = text:match("^الغاء العام @(.*)$") 
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if result.id_ then
 Reply_Status(msg,result.id_,"reply","• تم الغاء حظره عام من المجموعات")  
 database:srem(bot_id.."GBan:User", result.id_)
@@ -2908,27 +2931,27 @@ else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 return false
 end
-if text and text:match("^الغاء العام (%d+)$") and DevNiggA(msg) then
+if text and text:match("^الغاء العام (%d+)$") and DevNIGGA(msg) then
 local userid = text:match("^الغاء العام (%d+)$")
 database:srem(bot_id.."GBan:User", userid)
 Reply_Status(msg,userid,"reply","• تم الغاء حظره عام من المجموعات")  
 return false
 end
 
-if text == ("رفع مطور") and tonumber(msg.reply_to_message_id_) ~= 0 and DevNiggA(msg) then
-function Function_NiggA(extra, result, success)
+if text == ("رفع مطور") and tonumber(msg.reply_to_message_id_) ~= 0 and DevNIGGA(msg) then
+function Function_NIGGA(extra, result, success)
 database:sadd(bot_id.."Sudo:User", result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته مطور في البوت")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 return false 
 end
-if text and text:match("^رفع مطور @(.*)$") and DevNiggA(msg) then
+if text and text:match("^رفع مطور @(.*)$") and DevNIGGA(msg) then
 local username = text:match("^رفع مطور @(.*)$")
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
@@ -2940,26 +2963,26 @@ else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 return false 
 end
-if text and text:match("^رفع مطور (%d+)$") and DevNiggA(msg) then
+if text and text:match("^رفع مطور (%d+)$") and DevNIGGA(msg) then
 local userid = text:match("^رفع مطور (%d+)$")
 database:sadd(bot_id.."Sudo:User", userid)
 Reply_Status(msg,userid,"reply","• تم ترقيته مطور في البوت")  
 return false 
 end
-if text == ("حذف مطور") and tonumber(msg.reply_to_message_id_) ~= 0 and DevNiggA(msg) then
-function Function_NiggA(extra, result, success)
+if text == ("حذف مطور") and tonumber(msg.reply_to_message_id_) ~= 0 and DevNIGGA(msg) then
+function Function_NIGGA(extra, result, success)
 database:srem(bot_id.."Sudo:User", result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم تنزيله من المطورين")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 return false 
 end
-if text and text:match("^حذف مطور @(.*)$") and DevNiggA(msg) then
+if text and text:match("^حذف مطور @(.*)$") and DevNIGGA(msg) then
 local username = text:match("^حذف مطور @(.*)$")
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."Sudo:User", result.id_)
 Reply_Status(msg,result.id_,"reply","• تم تنزيله من المطورين")  
@@ -2967,10 +2990,10 @@ else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 return false
 end  
-if text and text:match("^حذف مطور (%d+)$") and DevNiggA(msg) then
+if text and text:match("^حذف مطور (%d+)$") and DevNIGGA(msg) then
 local userid = text:match("^حذف مطور (%d+)$")
 database:srem(bot_id.."Sudo:User", userid)
 Reply_Status(msg,userid,"reply","• تم تنزيله من المطورين")  
@@ -2978,16 +3001,16 @@ return false
 end
 
 if text == ("رفع منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and creatorA(msg) and GetSourseMember(msg) then 
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 database:sadd(bot_id.."Basic:Constructor"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته منشئ اساسي")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 return false
 end
 if text and text:match("^رفع منشئ اساسي @(.*)$") and creatorA(msg) and GetSourseMember(msg) then 
 local username = text:match("^رفع منشئ اساسي @(.*)$")
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
@@ -2999,7 +3022,7 @@ else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 return false
 end
 if text and text:match("^رفع منشئ اساسي (%d+)$") and creatorA(msg) and GetSourseMember(msg) then 
@@ -3009,16 +3032,16 @@ Reply_Status(msg,userid,"reply","• تم ترقيته منشئ اساسي")
 return false
 end
 if text == ("تنزيل منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and creatorA(msg) and GetSourseMember(msg) then 
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 database:srem(bot_id.."Basic:Constructor"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم تنزيله من المنشئين")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 return false
 end
 if text and text:match("^تنزيل منشئ اساسي @(.*)$") and creatorA(msg) and GetSourseMember(msg) then 
 local username = text:match("^تنزيل منشئ اساسي @(.*)$")
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."Basic:Constructor"..msg.chat_id_, result.id_)
 
@@ -3027,7 +3050,7 @@ else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 return false
 end
 if text and text:match("^تنزيل منشئ اساسي (%d+)$") and creatorA(msg) and GetSourseMember(msg) then 
@@ -3038,15 +3061,15 @@ return false
 end
 
 if text == "رفع منشئ" and tonumber(msg.reply_to_message_id_) ~= 0 and BasicConstructor(msg) and GetSourseMember(msg) then 
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 database:sadd(bot_id.."Constructor"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته منشئ في المجموعه")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 end
 if text and text:match("^رفع منشئ @(.*)$") and BasicConstructor(msg) and GetSourseMember(msg) then 
 local username = text:match("^رفع منشئ @(.*)$")
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
@@ -3058,7 +3081,7 @@ else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 end
 if text and text:match("^رفع منشئ (%d+)$") and BasicConstructor(msg) and GetSourseMember(msg) then 
 local userid = text:match("^رفع منشئ (%d+)$")
@@ -3066,16 +3089,16 @@ database:sadd(bot_id.."Constructor"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","• تم ترقيته منشئ في المجموعه")  
 end
 if text and text:match("^تنزيل منشئ$") and tonumber(msg.reply_to_message_id_) ~= 0 and BasicConstructor(msg) then
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 database:srem(bot_id.."Constructor"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم تنزيله من المنشئين")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 end
 ------------------------------------------------------------------------
 if text and text:match("^تنزيل منشئ @(.*)$") and BasicConstructor(msg) and GetSourseMember(msg) then 
 local username = text:match("^تنزيل منشئ @(.*)$")
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."Constructor"..msg.chat_id_, result.id_)
 Reply_Status(msg,result.id_,"reply","• تم تنزيله من المنشئين")  
@@ -3083,7 +3106,7 @@ else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 end
 if text and text:match("^تنزيل منشئ (%d+)$") and BasicConstructor(msg) and GetSourseMember(msg) then 
 local userid = text:match("^تنزيل منشئ (%d+)$")
@@ -3091,16 +3114,16 @@ database:srem(bot_id.."Constructor"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","• تم تنزيله من المنشئين")  
 end
 if text == ("رفع مدير") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) and GetSourseMember(msg) then 
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 database:sadd(bot_id.."Manager"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته مدير المجموعه")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 return false
 end  
 if text and text:match("^رفع مدير @(.*)$") and Constructor(msg) and GetSourseMember(msg) then 
 local username = text:match("^رفع مدير @(.*)$") 
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
@@ -3112,7 +3135,7 @@ else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 return false
 end 
 
@@ -3123,16 +3146,16 @@ Reply_Status(msg,userid,"reply","• تم ترقيته مدير المجموعه
 return false
 end  
 if text == ("تنزيل مدير") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) and GetSourseMember(msg) then 
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 database:srem(bot_id.."Manager"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم تنزيله من المدراء")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 return false
 end  
 if text and text:match("^تنزيل مدير @(.*)$") and Constructor(msg) and GetSourseMember(msg) then 
 local username = text:match("^تنزيل مدير @(.*)$")
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."Manager"..msg.chat_id_, result.id_)
 Reply_Status(msg,result.id_,"reply","• تم تنزيله من المدراء")  
@@ -3140,7 +3163,7 @@ else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 return false
 end  
 if text and text:match("^تنزيل مدير (%d+)$") and Constructor(msg) and GetSourseMember(msg) then 
@@ -3154,11 +3177,11 @@ if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_i
 send(msg.chat_id_, msg.id_,'• لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
 return false
 end
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 database:sadd(bot_id.."Mod:User"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته ادمن للمجموعه")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 return false
 end
 if text and text:match("^رفع ادمن @(.*)$") and Owner(msg) and GetSourseMember(msg) then 
@@ -3167,7 +3190,7 @@ if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_i
 send(msg.chat_id_, msg.id_,'• لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
 return false
 end
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
@@ -3179,7 +3202,7 @@ else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 return false
 end
 if text and text:match("^رفع ادمن (%d+)$") and Owner(msg) and GetSourseMember(msg) then 
@@ -3193,16 +3216,16 @@ Reply_Status(msg,userid,"reply","• تم ترقيته ادمن للمجموعه
 return false
 end
 if text == ("تنزيل ادمن") and tonumber(msg.reply_to_message_id_) ~= 0 and Owner(msg) and GetSourseMember(msg) then 
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 database:srem(bot_id.."Mod:User"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم تنزيله من ادمنيه المجموعه")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 return false
 end
 if text and text:match("^تنزيل ادمن @(.*)$") and Owner(msg) and GetSourseMember(msg) then 
 local username = text:match("^تنزيل ادمن @(.*)$") 
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."Mod:User"..msg.chat_id_, result.id_)
 Reply_Status(msg,result.id_,"reply","• تم تنزيله من ادمنيه المجموعه")  
@@ -3210,13 +3233,88 @@ else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 return false
 end
 if text and text:match("^تنزيل ادمن (%d+)$") and Owner(msg) and GetSourseMember(msg) then 
 local userid = text:match("^تنزيل ادمن (%d+)$")
 database:srem(bot_id.."Mod:User"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","• تم تنزيله من ادمنيه المجموعه")  
+return false
+end
+if text == ("المنظفين") and BasicConstructor(msg) and GetSourseMember(msg) then 
+local list = database:smembers(bot_id.."cleaner"..msg.chat_id_)
+t = "\n• قائمة المنظفين \n — — — — — — — — — \n"
+for k,v in pairs(list) do
+local username = database:get(bot_id.."User:Name" .. v)
+if username then
+t = t..""..k.."- ([@"..username.."])\n"
+else
+t = t..""..k.."- (`"..v.."`)\n"
+end
+end
+if #list == 0 then
+t = "• لا يوجد منظفين"
+end
+send(msg.chat_id_, msg.id_, t)
+end
+if text == ("رفع منظف") and tonumber(msg.reply_to_message_id_) ~= 0 and BasicConstructor(msg) and GetSourseMember(msg) then 
+function Function_NIGGA(extra, result, success)
+database:sadd(bot_id.."cleaner"..msg.chat_id_, result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته منظف المجموعه")  
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
+return false
+end  
+if text and text:match("^رفع منظف @(.*)$") and BasicConstructor(msg) and GetSourseMember(msg) then 
+local username = text:match("^رفع منظف @(.*)$") 
+function Function_NIGGA(extra, result, success)
+if result.id_ then
+if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
+send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+return false 
+end      
+database:sadd(bot_id.."cleaner"..msg.chat_id_, result.id_)
+Reply_Status(msg,result.id_,"reply","• تم ترقيته منظف المجموعه")  
+else
+send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
+end
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
+return false
+end 
+
+if text and text:match("^رفع منظف (%d+)$") and BasicConstructor(msg) and GetSourseMember(msg) then 
+local userid = text:match("^رفع منظف (%d+)$") 
+database:sadd(bot_id.."cleaner"..msg.chat_id_, userid)
+Reply_Status(msg,userid,"reply","• تم ترقيته منظف المجموعه")  
+return false
+end  
+if text == ("تنزيل منظف") and tonumber(msg.reply_to_message_id_) ~= 0 and BasicConstructor(msg) and GetSourseMember(msg) then 
+function Function_NIGGA(extra, result, success)
+database:srem(bot_id.."cleaner"..msg.chat_id_, result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","• تم تنزيله من المنظفين")  
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
+return false
+end  
+if text and text:match("^تنزيل منظف @(.*)$") and BasicConstructor(msg) and GetSourseMember(msg) then 
+local username = text:match("^تنزيل منظف @(.*)$")
+function Function_NIGGA(extra, result, success)
+if result.id_ then
+database:srem(bot_id.."cleaner"..msg.chat_id_, result.id_)
+Reply_Status(msg,result.id_,"reply","• تم تنزيله من المنظفين")  
+else
+send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
+end
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
+return false
+end  
+if text and text:match("^تنزيل منظف (%d+)$") and BasicConstructor(msg) and GetSourseMember(msg) then 
+local userid = text:match("^تنزيل منظف (%d+)$") 
+database:srem(bot_id.."cleaner"..msg.chat_id_, userid)
+Reply_Status(msg,userid,"reply","• تم تنزيله من المنظفين")  
 return false
 end
 if text == ("رفع جلب") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) and GetSourseMember(msg) then   
@@ -3440,11 +3538,11 @@ if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_i
 send(msg.chat_id_, msg.id_,'• لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
 return false
 end
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 database:sadd(bot_id.."Special:User"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته مميز للمجموعه")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 return false
 end
 if text and text:match("^رفع مميز @(.*)$") and Addictive(msg) and GetSourseMember(msg) then     
@@ -3453,7 +3551,7 @@ if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_i
 send(msg.chat_id_, msg.id_,'• لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
 return false
 end
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
@@ -3465,7 +3563,7 @@ else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 return false
 end
 if text and text:match("^رفع مميز (%d+)$") and Addictive(msg) and GetSourseMember(msg) then     
@@ -3479,16 +3577,16 @@ Reply_Status(msg,userid,"reply","• تم ترقيته مميز للمجموعه
 return false
 end
 if (text == ("تنزيل مميز")) and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) and GetSourseMember(msg) then     
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 database:srem(bot_id.."Special:User"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم تنزيله من المميزين")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 return false
 end
 if text and text:match("^تنزيل مميز @(.*)$") and Addictive(msg) and GetSourseMember(msg) then     
 local username = text:match("^تنزيل مميز @(.*)$") 
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."Special:User"..msg.chat_id_, result.id_)
 Reply_Status(msg,result.id_,"reply","• تم تنزيله من المميزين")  
@@ -3496,7 +3594,7 @@ else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 return false
 end
 if text and text:match("^تنزيل مميز (%d+)$") and Addictive(msg) then  
@@ -3510,21 +3608,21 @@ local RTPA = text:match("رفع (.*)")
 if database:sismember(bot_id.."Coomds"..msg.chat_id_,RTPA) then
 function by_reply(extra, result, success)   
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-local NiggArt = database:get(bot_id.."Comd:New:rt:bot:"..RTPA..msg.chat_id_)
-if NiggArt == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"• العضو > ["..data.first_name_.."](t.me/"..(data.username_ or "NiGGa_SoUrcE")..")".."\n• تم رفعه "..RTPA.." هنا\n")
+local NIGGArt = database:get(bot_id.."Comd:New:rt:bot:"..RTPA..msg.chat_id_)
+if NIGGArt == "مميز" and Addictive(msg) then
+send(msg.chat_id_, msg.id_,"• العضو > ["..data.first_name_.."](t.me/"..(data.username_ or "NIGGA_SoUrcE")..")".."\n• تم رفعه "..RTPA.." هنا\n")
 database:set(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,RTPA) 
 database:sadd(bot_id.."Special:User"..msg.chat_id_,result.sender_user_id_)  
-elseif NiggArt == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"• العضو > ["..data.first_name_.."](t.me/"..(data.username_ or "NiGGa_SoUrcE")..")".."\n• تم رفعه "..RTPA.." هنا\n")
+elseif NIGGArt == "ادمن" and Owner(msg) then 
+send(msg.chat_id_, msg.id_,"• العضو > ["..data.first_name_.."](t.me/"..(data.username_ or "NIGGA_SoUrcE")..")".."\n• تم رفعه "..RTPA.." هنا\n")
 database:set(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,RTPA)
 database:sadd(bot_id.."Mod:User"..msg.chat_id_,result.sender_user_id_)  
-elseif NiggArt == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"• العضو > ["..data.first_name_.."](t.me/"..(data.username_ or "NiGGa_SoUrcE")..")".."\n• تم رفعه "..RTPA.." هنا\n")
+elseif NIGGArt == "مدير" and Constructor(msg) then
+send(msg.chat_id_, msg.id_,"• العضو > ["..data.first_name_.."](t.me/"..(data.username_ or "NIGGA_SoUrcE")..")".."\n• تم رفعه "..RTPA.." هنا\n")
 database:set(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,RTPA)  
 database:sadd(bot_id.."Manager"..msg.chat_id_,result.sender_user_id_)  
-elseif NiggArt == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"• العضو > ["..data.first_name_.."](t.me/"..(data.username_ or "NiGGa_SoUrcE")..")".."\n• تم رفعه "..RTPA.." هنا\n")
+elseif NIGGArt == "عضو" and Addictive(msg) then
+send(msg.chat_id_, msg.id_,"• العضو > ["..data.first_name_.."](t.me/"..(data.username_ or "NIGGA_SoUrcE")..")".."\n• تم رفعه "..RTPA.." هنا\n")
 end
 end,nil)   
 end   
@@ -3536,21 +3634,21 @@ local RTPA = text:match("تنزيل (.*)")
 if database:sismember(bot_id.."Coomds"..msg.chat_id_,RTPA) then
 function by_reply(extra, result, success)   
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-local NiggArt = database:get(bot_id.."Comd:New:rt:bot:"..RTPA..msg.chat_id_)
-if NiggArt == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"• العضو > ["..data.first_name_.."](t.me/"..(data.username_ or "NiGGa_SoUrcE")..")".."\n• تم تنزيله من "..RTPA.." هنا\n")  
+local NIGGArt = database:get(bot_id.."Comd:New:rt:bot:"..RTPA..msg.chat_id_)
+if NIGGArt == "مميز" and Addictive(msg) then
+send(msg.chat_id_, msg.id_,"• العضو > ["..data.first_name_.."](t.me/"..(data.username_ or "NIGGA_SoUrcE")..")".."\n• تم تنزيله من "..RTPA.." هنا\n")  
 database:srem(bot_id.."Special:User"..msg.chat_id_,result.sender_user_id_)  
 database:del(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
-elseif NiggArt == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"• العضو > ["..data.first_name_.."](t.me/"..(data.username_ or "NiGGa_SoUrcE")..")".."\n• تم تنزيله من "..RTPA.." هنا\n")  
+elseif NIGGArt == "ادمن" and Owner(msg) then 
+send(msg.chat_id_, msg.id_,"• العضو > ["..data.first_name_.."](t.me/"..(data.username_ or "NIGGA_SoUrcE")..")".."\n• تم تنزيله من "..RTPA.." هنا\n")  
 database:srem(bot_id.."Mod:User"..msg.chat_id_,result.sender_user_id_) 
 database:del(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
-elseif NiggArt == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"• العضو > ["..data.first_name_.."](t.me/"..(data.username_ or "NiGGa_SoUrcE")..")".."\n• تم تنزيله من "..RTPA.." هنا\n")  
+elseif NIGGArt == "مدير" and Constructor(msg) then
+send(msg.chat_id_, msg.id_,"• العضو > ["..data.first_name_.."](t.me/"..(data.username_ or "NIGGA_SoUrcE")..")".."\n• تم تنزيله من "..RTPA.." هنا\n")  
 database:srem(bot_id.."Manager"..msg.chat_id_,result.sender_user_id_)  
 database:del(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
-elseif NiggArt == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"• العضو > ["..data.first_name_.."](t.me/"..(data.username_ or "NiGGa_SoUrcE")..")".."\n• تم تنزيله من "..RTPA.." هنا\n")  
+elseif NIGGArt == "عضو" and Addictive(msg) then
+send(msg.chat_id_, msg.id_,"• العضو > ["..data.first_name_.."](t.me/"..(data.username_ or "NIGGA_SoUrcE")..")".."\n• تم تنزيله من "..RTPA.." هنا\n")  
 end
 end,nil)   
 end   
@@ -3562,21 +3660,21 @@ local text1 = {string.match(text, "^(رفع) (.*) @(.*)$")}
 if database:sismember(bot_id.."Coomds"..msg.chat_id_,text1[2]) then
 function py_username(extra, result, success)   
 if result.id_ then
-local NiggArt = database:get(bot_id.."Comd:New:rt:bot:"..text1[2]..msg.chat_id_)
-if NiggArt == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"• العضو > ["..result.title_.."](t.me/"..(text1[3] or "NiGGa_SoUrcE")..")".."\n• تم رفعه "..text1[2].." هنا")   
+local NIGGArt = database:get(bot_id.."Comd:New:rt:bot:"..text1[2]..msg.chat_id_)
+if NIGGArt == "مميز" and Addictive(msg) then
+send(msg.chat_id_, msg.id_,"• العضو > ["..result.title_.."](t.me/"..(text1[3] or "NIGGA_SoUrcE")..")".."\n• تم رفعه "..text1[2].." هنا")   
 database:sadd(bot_id.."Special:User"..msg.chat_id_,result.id_)  
 database:set(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
-elseif NiggArt == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"• العضو > ["..result.title_.."](t.me/"..(text1[3] or "NiGGa_SoUrcE")..")".."\n• تم رفعه "..text1[2].." هنا")   
+elseif NIGGArt == "ادمن" and Owner(msg) then 
+send(msg.chat_id_, msg.id_,"• العضو > ["..result.title_.."](t.me/"..(text1[3] or "NIGGA_SoUrcE")..")".."\n• تم رفعه "..text1[2].." هنا")   
 database:sadd(bot_id.."Mod:User"..msg.chat_id_,result.id_)  
 database:set(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
-elseif NiggArt == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"• العضو > ["..result.title_.."](t.me/"..(text1[3] or "NiGGa_SoUrcE")..")".."\n• تم رفعه "..text1[2].." هنا")   
+elseif NIGGArt == "مدير" and Constructor(msg) then
+send(msg.chat_id_, msg.id_,"• العضو > ["..result.title_.."](t.me/"..(text1[3] or "NIGGA_SoUrcE")..")".."\n• تم رفعه "..text1[2].." هنا")   
 database:sadd(bot_id.."Manager"..msg.chat_id_,result.id_)  
 database:set(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
-elseif NiggArt == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"• العضو > ["..result.title_.."](t.me/"..(text1[3] or "NiGGa_SoUrcE")..")".."\n• تم رفعه "..text1[2].." هنا")   
+elseif NIGGArt == "عضو" and Addictive(msg) then
+send(msg.chat_id_, msg.id_,"• العضو > ["..result.title_.."](t.me/"..(text1[3] or "NIGGA_SoUrcE")..")".."\n• تم رفعه "..text1[2].." هنا")   
 end
 else
 info = "• المعرف غلط"
@@ -3591,21 +3689,21 @@ local text1 = {string.match(text, "^(تنزيل) (.*) @(.*)$")}
 if database:sismember(bot_id.."Coomds"..msg.chat_id_,text1[2]) then
 function py_username(extra, result, success)   
 if result.id_ then
-local NiggArt = database:get(bot_id.."Comd:New:rt:bot:"..text1[2]..msg.chat_id_)
-if NiggArt == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"• العضو > ["..result.title_.."](t.me/"..(text1[3] or "NiGGa_SoUrcE")..")".."\n• تم تنريله من "..text1[2].." هنا")   
+local NIGGArt = database:get(bot_id.."Comd:New:rt:bot:"..text1[2]..msg.chat_id_)
+if NIGGArt == "مميز" and Addictive(msg) then
+send(msg.chat_id_, msg.id_,"• العضو > ["..result.title_.."](t.me/"..(text1[3] or "NIGGA_SoUrcE")..")".."\n• تم تنريله من "..text1[2].." هنا")   
 database:srem(bot_id.."Special:User"..msg.chat_id_,result.id_)  
 database:del(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.id_)
-elseif NiggArt == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"• العضو > ["..result.title_.."](t.me/"..(text1[3] or "NiGGa_SoUrcE")..")".."\n• تم تنريله من "..text1[2].." هنا")   
+elseif NIGGArt == "ادمن" and Owner(msg) then 
+send(msg.chat_id_, msg.id_,"• العضو > ["..result.title_.."](t.me/"..(text1[3] or "NIGGA_SoUrcE")..")".."\n• تم تنريله من "..text1[2].." هنا")   
 database:srem(bot_id.."Mod:User"..msg.chat_id_,result.id_)  
 database:del(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.id_)
-elseif NiggArt == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"• العضو > ["..result.title_.."](t.me/"..(text1[3] or "NiGGa_SoUrcE")..")".."\n• تم تنريله من "..text1[2].." هنا")   
+elseif NIGGArt == "مدير" and Constructor(msg) then
+send(msg.chat_id_, msg.id_,"• العضو > ["..result.title_.."](t.me/"..(text1[3] or "NIGGA_SoUrcE")..")".."\n• تم تنريله من "..text1[2].." هنا")   
 database:srem(bot_id.."Manager"..msg.chat_id_,result.id_)  
 database:del(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.id_)
-elseif NiggArt == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"• العضو > ["..result.title_.."](t.me/"..(text1[3] or "NiGGa_SoUrcE")..")".."\n• تم تنريله من "..text1[2].." هنا")   
+elseif NIGGArt == "عضو" and Addictive(msg) then
+send(msg.chat_id_, msg.id_,"• العضو > ["..result.title_.."](t.me/"..(text1[3] or "NIGGA_SoUrcE")..")".."\n• تم تنريله من "..text1[2].." هنا")   
 end
 else
 info = "• المعرف غلط"
@@ -3620,7 +3718,11 @@ if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) th
 send(msg.chat_id_, msg.id_,'• لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
 return false
 end
-function Function_NiggA(extra, result, success)
+if database:get(bot_id.."Ban:User:Time"..msg.chat_id_) == 5 and database:get(bot_id.."Y:Ban:User:Time"..msg.chat_id_)== 'del' then 
+send(msg.chat_id_, msg.id_,'• لا يمكنك طرد اكثر من 5 اشخاص في 5 دقايق حاول مجدد بعد 5 دقايق')
+return false
+end
+function Function_NIGGA(extra, result, success)
 if result.sender_user_id_ == tonumber(1423337662) then
 send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
@@ -3640,10 +3742,13 @@ end
 database:sadd(bot_id.."Ban:User"..msg.chat_id_, result.sender_user_id_)
 Kick_Group(result.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم حظره من المجموعه")  
+rt = database:get(bot_id..'Ban:User:Time'..msg.sender_user_id_) or 0
+fr = rt + 1
+database:setex(bot_id..'Ban:User:Time'..msg.sender_user_id_,360,fr)
 end,nil)   
 end
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 return false
 end
 if text and text:match("^حظر @(.*)$") and Addictive(msg) and GetSourseMember(msg) then   
@@ -3652,7 +3757,11 @@ if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) th
 send(msg.chat_id_, msg.id_,'• لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
 return false
 end
-function Function_NiggA(extra, result, success)
+if database:get(bot_id.."Ban:User:Time"..msg.chat_id_) == 5 and database:get(bot_id.."Y:Ban:User:Time"..msg.chat_id_)== 'del' then 
+send(msg.chat_id_, msg.id_,'• لا يمكنك طرد اكثر من 5 اشخاص في 5 دقايق حاول مجدد بعد 5 دقايق')
+return false
+end
+function Function_NIGGA(extra, result, success)
 if result.id_ then
 if result.id_ == tonumber(Id_Sudo) then
 send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت \n")
@@ -3681,13 +3790,16 @@ end
 database:sadd(bot_id.."Ban:User"..msg.chat_id_, result.id_)
 Kick_Group(msg.chat_id_, result.id_)
 Reply_Status(msg,result.id_,"reply","• تم حظره من المجموعه")  
+rt = database:get(bot_id..'Ban:User:Time'..msg.sender_user_id_) or 0
+fr = rt + 1
+database:setex(bot_id..'Ban:User:Time'..msg.sender_user_id_,360,fr)
 end,nil)   
 end
 else
 send(msg.chat_id_, msg.id_, "• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 return false
 end
 
@@ -3695,6 +3807,10 @@ if text and text:match("^حظر (%d+)$") and Addictive(msg) and GetSourseMember(
 local userid = text:match("^حظر (%d+)$") 
 if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,'• لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
+return false
+end
+if database:get(bot_id.."Ban:User:Time"..msg.chat_id_) == 5 and database:get(bot_id.."Y:Ban:User:Time"..msg.chat_id_)== 'del' then 
+send(msg.chat_id_, msg.id_,'• لا يمكنك طرد اكثر من 5 اشخاص في 5 دقايق حاول مجدد بعد 5 دقايق')
 return false
 end
 if userid == tonumber(Id_Sudo) then
@@ -3720,12 +3836,15 @@ end
 database:sadd(bot_id.."Ban:User"..msg.chat_id_, userid)
 Kick_Group(msg.chat_id_, userid)  
 Reply_Status(msg,userid,"reply","• تم حظره من المجموعه")  
+rt = database:get(bot_id..'Ban:User:Time'..msg.sender_user_id_) or 0
+fr = rt + 1
+database:setex(bot_id..'Ban:User:Time'..msg.sender_user_id_,360,fr)
 end,nil)   
 end
 return false
 end
 if text == ("الغاء حظر") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) and GetSourseMember(msg) then   
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if tonumber(result.sender_user_id_) == tonumber(bot_id) then
 send(msg.chat_id_, msg.id_, "•️ انا لست محظورا \n") 
 return false 
@@ -3734,13 +3853,13 @@ database:srem(bot_id.."Ban:User"..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = result.sender_user_id_, status_ = { ID = "ChatMemberStatusLeft" },},function(arg,ban) end,nil)   
 Reply_Status(msg,result.sender_user_id_,"reply","• تم الغاء حظره من هنا")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 return false
 end
  
 if text and text:match("^الغاء حظر @(.*)$") and Addictive(msg) and GetSourseMember(msg) then   
 local username = text:match("^الغاء حظر @(.*)$") 
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if result.id_ then
 if tonumber(result.id_) == tonumber(bot_id) then
 send(msg.chat_id_, msg.id_, "•️ انا لست محظورا \n") 
@@ -3753,7 +3872,7 @@ else
 send(msg.chat_id_, msg.id_, "• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 return false
 end
 
@@ -3770,7 +3889,7 @@ return false
 end
 
 if text == ("كتم") and msg.reply_to_message_id_ ~= 0 and Addictive(msg) and GetSourseMember(msg) then   
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if result.sender_user_id_ == tonumber(1423337662) then
 send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس  \n")
 return false 
@@ -3790,7 +3909,7 @@ end
 database:sadd(bot_id.."Muted:User"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم كتمه من هنا")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 return false
 end
 if text and text:match("^كتم @(.*)$") and Addictive(msg) and GetSourseMember(msg) then   
@@ -3799,7 +3918,7 @@ if msg.can_be_deleted_ == false then
 send(msg.chat_id_, msg.id_,"• البوت ليس ادمن يرجى ترقيتي !") 
 return false  
 end
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if result.id_ then
 if result.id_ == tonumber(1423337662) then
 send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
@@ -3819,7 +3938,7 @@ else
 send(msg.chat_id_, msg.id_, "• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 return false
 end
 if text and text:match("^كتم (%d+)$") and Addictive(msg) and GetSourseMember(msg) then   
@@ -3841,16 +3960,16 @@ end
 return false
 end
 if text == ("الغاء كتم") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) and GetSourseMember(msg) then   
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 database:srem(bot_id.."Muted:User"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم الغاء كتمه من هنا")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 return false
 end
 if text and text:match("^الغاء كتم @(.*)$") and Addictive(msg) then
 local username = text:match("^الغاء كتم @(.*)$")
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."Muted:User"..msg.chat_id_, result.id_)
 Reply_Status(msg,result.id_,"reply","• تم الغاء كتمه من هنا")  
@@ -3858,7 +3977,7 @@ else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 return false
 end
 
@@ -3870,7 +3989,7 @@ return false
 end
 
 if text == ("تقيد") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) and GetSourseMember(msg) then   
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) then
 send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 else
@@ -3878,7 +3997,7 @@ https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_i
 Reply_Status(msg,result.sender_user_id_,"reply","• تم تقييده في المجموعه")  
 end
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 return false
 end
 if text and text:match('^تقيد (%d+) (.*)$') and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) and GetSourseMember(msg) then   
@@ -3903,7 +4022,7 @@ if Rank_Checking(result.id_, msg.chat_id_) then
 send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.id_,msg.chat_id_).." )")
 else
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n•> العضو > ['..data.first_name_..'](t.me/'..(data.username_ or 'NiGGa_SoUrcE')..') ~'
+usertext = '\n•> العضو > ['..data.first_name_..'](t.me/'..(data.username_ or 'NIGGA_SoUrcE')..') ~'
 status  = '\n• تم تقيده لمدة ~ { '..TextEnd[2]..' '..TextEnd[3]..'}'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
@@ -3939,7 +4058,7 @@ TextEnd[3] = TextEnd[3]:gsub("يوم","ايام")
 if Rank_Checking(result.id_, msg.chat_id_) then
 send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.id_,msg.chat_id_).." )")
 else
-usertext = '\n• العضو > ['..result.title_..'](t.me/'..(username or 'NiGGa_SoUrcE')..')'
+usertext = '\n• العضو > ['..result.title_..'](t.me/'..(username or 'NIGGA_SoUrcE')..')'
 status  = '\n• تم تقيده لمدة  { '..TextEnd[2]..' '..TextEnd[3]..'}'
 texts = usertext..status
 send(msg.chat_id_, msg.id_,texts)
@@ -3952,7 +4071,7 @@ return false
 end
 if text and text:match("^تقيد @(.*)$") and Addictive(msg) and GetSourseMember(msg) then   
 local username = text:match("^تقيد @(.*)$")
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
@@ -3968,7 +4087,7 @@ else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 return false
 end
 if text and text:match("^تقيد (%d+)$") and Addictive(msg) and GetSourseMember(msg) then   
@@ -3983,16 +4102,16 @@ return false
 end
 ------------------------------------------------------------------------
 if text == ("الغاء تقيد") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) and GetSourseMember(msg) then   
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. result.sender_user_id_ .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
 Reply_Status(msg,result.sender_user_id_,"reply","• تم الغاء تقييده")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 return false
 end
 if text and text:match("^الغاء تقيد @(.*)$") and Addictive(msg) and GetSourseMember(msg) then   
 local username = text:match("^الغاء تقيد @(.*)$")
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if result.id_ then
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. result.id_ .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
 Reply_Status(msg,result.id_,"reply","• تم الغاء تقييده")  
@@ -4000,7 +4119,7 @@ else
 send(msg.chat_id_, msg.id_, "• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 return false
 end
 if text and text:match("^الغاء تقيد (%d+)$") and Addictive(msg) and GetSourseMember(msg) then   
@@ -4014,7 +4133,11 @@ if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) th
 send(msg.chat_id_, msg.id_,'• لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
 return false
 end
-function Function_NiggA(extra, result, success)
+if database:get(bot_id.."Ban:User:Time"..msg.chat_id_) == 5 and database:get(bot_id.."Y:Ban:User:Time"..msg.chat_id_)== 'del' then 
+send(msg.chat_id_, msg.id_,'• لا يمكنك طرد اكثر من 5 اشخاص في 5 دقايق حاول مجدد بعد 5 دقايق')
+return false
+end
+function Function_NIGGA(extra, result, success)
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) == true then
 send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 else
@@ -4029,10 +4152,13 @@ return false
 end
 Kick_Group(result.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم طرده من هنا")  
+rt = database:get(bot_id..'Ban:User:Time'..msg.sender_user_id_) or 0
+fr = rt + 1
+database:setex(bot_id..'Ban:User:Time'..msg.sender_user_id_,360,fr)
 end,nil)
 end
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 return false
 end  
 if text and text:match("^طرد @(.*)$") and Addictive(msg) and GetSourseMember(msg) then   
@@ -4041,7 +4167,11 @@ if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) th
 send(msg.chat_id_, msg.id_,'• لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
 return false
 end
-function Function_NiggA(extra, result, success)
+if database:get(bot_id.."Ban:User:Time"..msg.chat_id_) == 5 and database:get(bot_id.."Y:Ban:User:Time"..msg.chat_id_)== 'del' then 
+send(msg.chat_id_, msg.id_,'• لا يمكنك طرد اكثر من 5 اشخاص في 5 دقايق حاول مجدد بعد 5 دقايق')
+return false
+end
+function Function_NIGGA(extra, result, success)
 if result.id_ then
 if Rank_Checking(result.id_, msg.chat_id_) == true then
 send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.id_,msg.chat_id_).." )")
@@ -4061,20 +4191,26 @@ return false
 end
 Kick_Group(msg.chat_id_, result.id_)
 Reply_Status(msg,result.id_,"reply","• تم طرده من هنا")  
+rt = database:get(bot_id..'Ban:User:Time'..msg.sender_user_id_) or 0
+fr = rt + 1
+database:setex(bot_id..'Ban:User:Time'..msg.sender_user_id_,360,fr)
 end,nil)   
 end
 else
 send(msg.chat_id_, msg.id_, "• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 return false
 end  
-
 if text and text:match("^طرد (%d+)$") and Addictive(msg) and GetSourseMember(msg) then   
 local userid = text:match("^طرد (%d+)$") 
 if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,'• لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
+return false
+end
+if database:get(bot_id.."Ban:User:Time"..msg.chat_id_) == 5 and database:get(bot_id.."Y:Ban:User:Time"..msg.chat_id_)== 'del' then 
+send(msg.chat_id_, msg.id_,'• لا يمكنك طرد اكثر من 5 اشخاص في 5 دقايق حاول مجدد بعد 5 دقايق')
 return false
 end
 if Rank_Checking(userid, msg.chat_id_) == true then
@@ -4091,6 +4227,9 @@ return false
 end
 Kick_Group(msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","• تم طرده من هنا")  
+rt = database:get(bot_id..'Ban:User:Time'..msg.sender_user_id_) or 0
+fr = rt + 1
+database:setex(bot_id..'Ban:User:Time'..msg.sender_user_id_,360,fr)
 end,nil)   
 end
 return false
@@ -4105,7 +4244,7 @@ send(msg.chat_id_, msg.id_,'• لا يمكنني تعديل  او وضع لقب
 return false  
 end
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n•  العضو > ['..data.first_name_..'](t.me/'..(data.username_ or 'NiggA')..') '
+usertext = '\n•  العضو > ['..data.first_name_..'](t.me/'..(data.username_ or 'NIGGA')..') '
 status  = '\n•  الايدي > '..result.sender_user_id_..'\n• تم ضافه {'..timsh..'} كلقب له'
 send(msg.chat_id_, msg.id_, usertext..status)
 https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=True&can_restrict_members=false&can_pin_messages=True&can_promote_members=false")
@@ -4122,11 +4261,11 @@ if getInfo.result.can_promote_members == false then
 send(msg.chat_id_, msg.id_,'• لا يمكنني رفعه ليس لدي صلاحيه رفع مشرفين') 
 return false  
 end
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=True&can_restrict_members=false&can_pin_messages=True&can_promote_members=false")
 Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته مشرف للمجموعه")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 return false
 end
 if text and text:match("^رفع مشرف @(.*)$") and Constructor(msg) and GetSourseMember(msg) then   
@@ -4137,7 +4276,7 @@ if getInfo.result.can_promote_members == false then
 send(msg.chat_id_, msg.id_,'• لا يمكنني رفعه ليس لدي صلاحيه رفع مشرفين') 
 return false  
 end
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
@@ -4149,7 +4288,7 @@ else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 return false
 end
 if text and text:match("^رفع مشرف (%d+)$") and Constructor(msg) and GetSourseMember(msg) then   
@@ -4172,11 +4311,11 @@ if getInfo.result.can_promote_members == false then
 send(msg.chat_id_, msg.id_,'• لا يمكنني رفعه ليس لدي صلاحيه تنزيل مشرفين') 
 return false  
 end
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
 Reply_Status(msg,result.sender_user_id_,"reply","• تم تنزيله من المشرفين")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 return false
 end
 if text and text:match("^تنزيل مشرف @(.*)$") and Constructor(msg) and GetSourseMember(msg) then   
@@ -4187,7 +4326,7 @@ if getInfo.result.can_promote_members == false then
 send(msg.chat_id_, msg.id_,'• لا يمكنني رفعه ليس لدي صلاحيه تنزيل مشرفين') 
 return false  
 end
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if result.id_ then
 https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
 Reply_Status(msg,result.id_,"reply","• تم تنزيله من المشرفين")  
@@ -4195,7 +4334,7 @@ else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 return false
 end
 if text and text:match("^تنزيل مشرف (%d+)$") and Constructor(msg) and GetSourseMember(msg) then   
@@ -4306,11 +4445,11 @@ if getInfo.result.can_promote_members == false then
 send(msg.chat_id_, msg.id_,'• لا يمكنني رفعه ليس لدي صلاحيه رفع مشرفين') 
 return false  
 end
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=True&can_delete_messages=True&can_invite_users=True&can_restrict_members=True&can_pin_messages=True&can_promote_members=True")
 Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته مشرف كامل الصلاحيات للمجموعه")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 return false
 end
 if text and text:match("^رفع مشرف كامل الصلاحيات @(.*)$") and Constructor(msg) and GetSourseMember(msg) then   
@@ -4321,7 +4460,7 @@ if getInfo.result.can_promote_members == false then
 send(msg.chat_id_, msg.id_,'• لا يمكنني رفعه ليس لدي صلاحيه رفع مشرفين') 
 return false  
 end
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
@@ -4333,7 +4472,7 @@ else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 return false
 end
 if text and text:match("^رفع مشرف كامل الصلاحيات (%d+)$") and Constructor(msg) and GetSourseMember(msg) then   
@@ -4392,7 +4531,14 @@ local link = database:get(bot_id.."Private:Group:Link"..msg.chat_id_)
 if link then                              
 send(msg.chat_id_,msg.id_,"• LinK GrOup : \n ["..link.."]")                          
 else                
-send(msg.chat_id_, msg.id_,"• لا يوجد رابط ارسل ضع رابط")              
+local InviteLink = json:decode(https.request("https://api.telegram.org/bot"..token.."/getChat?chat_id="..msg.chat_id_))
+if InviteLink.result.invite_link then
+jk = InviteLink.result.invite_link
+elseif not InviteLink.result.invite_link then
+https.request("https://api.telegram.org/bot"..token.."/exportChatInviteLink?chat_id="..msg.chat_id_)
+jk = InviteLink.result.invite_link
+end 
+send(msg.chat_id_,msg.id_,"• LinK GrOup : \n ["..jk.."]")                          
 end            
 end
 if text == "مسح الرابط" or text == "حذف الرابط" and GetSourseMember(msg) then   
@@ -4403,27 +4549,50 @@ return false
 end
 return false  
 end
-if text == "امسح" and Owner(msg) and GetSourseMember(msg) then   
-msgm = {[0]=msg.id_}
-local Message = msg.id_
-for i=1,200 do
-Message = Message - 1048576
-msgm[i] = Message
+if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then      
+database:sadd(bot_id.."msg:media"..msg.chat_id_, msg.id_)
 end
-tdcli_function({ID = "GetMessages",chat_id_ = msg.chat_id_,message_ids_ = msgm},function(arg,data)
-new = 0
-msgm2 = {}
-for i=0 ,data.total_count_ do
-if data.messages_[i] and data.messages_[i].content_ and data.messages_[i].content_.ID ~= "MessageText" then
-msgm2[new] = data.messages_[i].id_
-new = new + 1
+if text and not database:get(bot_id.."y:msg:media"..msg.chat_id_) then    
+local list = database:smembers(bot_id.."msg:media"..msg.chat_id_)
+for k,v in pairs(list) do
+local Message = v
+if k == 200 then
+t = "⌔︙تم مسح "..k.." من الوسائط الموجوده"
+DeleteMessage(msg.chat_id_,{[0]=Message})
+database:del(bot_id.."msg:media"..msg.chat_id_)
 end
 end
-DeleteMessage(msg.chat_id_,msgm2)
-end,nil)  
-send(msg.chat_id_, msg.id_,"تم تنظيف الميديا بنجاح •")
+send(msg.chat_id_, msg.id_, t)
 end
-if text == "امسح" and Owner(msg) and GetSourseMember(msg) then   
+if text == ("امسح") and cleaner(msg) then  
+local list = database:smembers(bot_id.."msg:media"..msg.chat_id_)
+for k,v in pairs(list) do
+local Message = v
+if Message then
+t = "⌔︙تم مسح "..k.." من الوسائط الموجوده"
+DeleteMessage(msg.chat_id_,{[0]=Message})
+database:del(bot_id.."msg:media"..msg.chat_id_)
+end
+end
+if #list == 0 then
+t = "⌔︙لا يوجد ميديا في المجموعه"
+end
+send(msg.chat_id_, msg.id_, t)
+end
+if text == ("عدد الميديا") and cleaner(msg) then  
+local num = database:smembers(bot_id.."msg:media"..msg.chat_id_)
+for k,v in pairs(num) do
+local numl = v
+if numl then
+l = "⌔︙عدد الميديا الموجود هو "..k
+end
+end
+if #num == 0 then
+l = "⌔︙لا يوجد ميديا في المجموعه"
+end
+send(msg.chat_id_, msg.id_, l)
+end
+if text == "امسح" and cleaner(msg) and GetSourseMember(msg) then   
 Msgs = {[0]=msg.id_}
 local Message = msg.id_
 for i=1,200 do
@@ -4947,7 +5116,7 @@ local Text= [[
 • `#رتبتك`   موقع المستخدم
 • `#تعديلاتك`   عدد السحكات 
 *•●○●○●○●•ٴ*
-𝘊𝘩 - [𝘯𝘪𝘨𝘨𝘢](http://t.me/NiGGa_SoUrcE)•
+𝘊𝘩 - [𝘯𝘪𝘨𝘨𝘢](http://t.me/NIGGA_SoUrcE)•
 ]]
 send(msg.chat_id_, msg.id_,Text)
 database:set(bot_id.."Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true1")
@@ -5035,7 +5204,7 @@ database:sadd(bot_id.."Spam:Group"..msg.sender_user_id_,text)
 end  
 end
 end
-if text == ("مسح ردود المطور") and DevNiggA(msg) then 
+if text == ("مسح ردود المطور") and DevNIGGA(msg) then 
 local list = database:smembers(bot_id.."List:Rd:Sudo")
 for k,v in pairs(list) do
 database:del(bot_id.."Add:Rd:Sudo:Gif"..v)   
@@ -5050,7 +5219,7 @@ database:del(bot_id.."List:Rd:Sudo")
 end
 send(msg.chat_id_, msg.id_,"• تم مسح ردود المطور")
 end
-if text == ("ردود المطور") and DevNiggA(msg) then 
+if text == ("ردود المطور") and DevNIGGA(msg) then 
 local list = database:smembers(bot_id.."List:Rd:Sudo")
 text = "\n• قائمة ردود المطور \n — — — — — — — — —\n"
 for k,v in pairs(list) do
@@ -5126,12 +5295,12 @@ send(msg.chat_id_, msg.id_,"• تم حفظ الرد بنجاح")
 return false  
 end  
 end
-if text == "اضف رد للكل" and DevNiggA(msg) then 
+if text == "اضف رد للكل" and DevNIGGA(msg) then 
 send(msg.chat_id_, msg.id_,"•  ارسل الكلمه التري تريد اضافتها")
 database:set(bot_id.."Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return false 
 end
-if text == "حذف رد للكل" and DevNiggA(msg) then 
+if text == "حذف رد للكل" and DevNIGGA(msg) then 
 send(msg.chat_id_, msg.id_,"•  ارسل الكلمه التري تريد حذفها")
 database:set(bot_id.."Set:On"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return false 
@@ -5151,7 +5320,7 @@ local Text= [[
 • `#رتبتك`   موقع المستخدم
 • `#تعديلاتك`   عدد السحكات 
 *•●○●○●○●•ٴ*
-𝘊𝘩 - [𝘯𝘪𝘨𝘨𝘢](http://t.me/NiGGa_SoUrcE)•
+𝘊𝘩 - [𝘯𝘪𝘨𝘨𝘢](http://t.me/NIGGA_SoUrcE)•
 ]]
 send(msg.chat_id_, msg.id_,Text)
 database:set(bot_id.."Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_, "true1")
@@ -5242,7 +5411,7 @@ end,nil)
 end
 end
 if text == ("تنزيل الكل") and msg.reply_to_message_id_ ~= 0 and Owner(msg) and GetSourseMember(msg) then   
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if tonumber(Id_Sudo) == tonumber(result.sender_user_id_) then
 send(msg.chat_id_, msg.id_,"• لا تستطيع تنزيل المطور الاساسي")
 return false 
@@ -5293,7 +5462,7 @@ database:srem(bot_id.."Mod:User"..msg.chat_id_, result.sender_user_id_)
 database:srem(bot_id.."Special:User"..msg.chat_id_, result.sender_user_id_)
 end
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 end
 if text and text:match("^تنزيل الكل @(.*)$") and Owner(msg) and GetSourseMember(msg) then   
 function FunctionStatus(extra, result, success)
@@ -5353,10 +5522,10 @@ tdcli_function ({ID = "SearchPublicChat",username_ = text:match("^تنزيل ا�
 end
 if text == ("تاك جميع الرتب") and Addictive(msg) and GetSourseMember(msg) then   
 tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = 200
-},function(ta,NiggA)
+},function(ta,NIGGA)
 local t = "\n*• قائمة الاعضاء \n *•●○●○●○●•ٴ*\n*"
 x = 0
-local list = NiggA.members_
+local list = NIGGA.members_
 for k, v in pairs(list) do
 x = x + 1
 if database:get(bot_id..'User:Name'..v.user_id_) then
@@ -5372,10 +5541,10 @@ if database:get(bot_id.."chat:tagall"..msg.chat_id_) then  return send(msg.chat_
 database:setex(bot_id..'chat:tagall'..msg.chat_id_,600,true)
 tdcli_function({ID="GetChannelFull",channel_id_ = msg.chat_id_:gsub('-100','')},function(argg,dataa) 
 tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = dataa.member_count_
-},function(ta,NiggA)
+},function(ta,NIGGA)
 x = 0
 tags = 0
-local list = NiggA.members_
+local list = NIGGA.members_
 for k, v in pairs(list) do
 tdcli_function({ID="GetUser",user_id_ = v.user_id_},function(arg,data)
 if x == 5 or x == tags or k == 0 then
@@ -5398,10 +5567,10 @@ end,nil)
 end
 if text == ("تاك") and Addictive(msg) and GetSourseMember(msg) then   
 tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = 200
-},function(ta,NiggA)
+},function(ta,NIGGA)
 local t = "\n*• قائمة الاعضاء \n *•●○●○●○●•ٴ*\n*"
 x = 0
-local list = NiggA.members_
+local list = NIGGA.members_
 for k, v in pairs(list) do
 tdcli_function({ID="GetUser",user_id_ = v.user_id_},function(arg,data)
 x = x + 1
@@ -5419,10 +5588,10 @@ end
 if text and text:match("^تاك ل (%d+)$") and Addictive(msg) and GetSourseMember(msg) then   
 taglimit = text:match("^تاك ل (%d+)$"):gsub('تاك ل ','')
 tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = taglimit
-},function(ta,NiggA)
+},function(ta,NIGGA)
 local t = "\n*• قائمة الاعضاء \n *•●○●○●○●•ٴ*\n*"
 x = 0
-local list = NiggA.members_
+local list = NIGGA.members_
 for k, v in pairs(list) do
 tdcli_function({ID="GetUser",user_id_ = v.user_id_},function(arg,data)
 x = x + 1
@@ -5597,7 +5766,7 @@ if text == 'الرتبه' and tonumber(msg.reply_to_message_id_) > 0 and GetSour
 function start_function(extra, result, success)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(extra,data) 
 local rtp = Get_Rank(result.sender_user_id_,msg.chat_id_)
-local username = ' ['..data.first_name_..'](t.me/'..(data.username_ or 'NiGGa_SoUrcE')..')'
+local username = ' ['..data.first_name_..'](t.me/'..(data.username_ or 'NIGGA_SoUrcE')..')'
 local iduser = result.sender_user_id_
 send(msg.chat_id_, msg.id_,'*- العضو > (*'..username..'*)\n- الرتبه > ('..rtp..')*\n')
 end,nil)
@@ -5679,12 +5848,12 @@ return false
 end 
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,ta) 
 tdcli_function({ID="GetChannelFull",channel_id_ = msg.chat_id_:gsub("-100","")},function(arg,data) 
-local taha = "•  عدد الادمنيه : "..data.administrator_count_..
+local Sv = "•  عدد الادمنيه : "..data.administrator_count_..
 "\n\n•  عدد المطرودين : "..data.kicked_count_..
 "\n\n•  عدد الاعضاء : "..data.member_count_..
 "\n\n•  عدد رسائل الكروب : "..(msg.id_/2097152/0.5)..
 "\n\n•  اسم المجموعه : ["..ta.title_.."]"
-send(msg.chat_id_, msg.id_, taha) 
+send(msg.chat_id_, msg.id_, Sv) 
 end,nil)
 end,nil)
 end 
@@ -5719,9 +5888,9 @@ end
 end
 if text and text:match("^رفع القيود @(.*)") and Owner(msg) and GetSourseMember(msg) then     
 local username = text:match("^رفع القيود @(.*)") 
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if result.id_ then
-if DevNiggA(msg) then
+if DevNIGGA(msg) then
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. result.id_ .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
 database:srem(bot_id.."GBan:User",result.id_)
 database:srem(bot_id.."Ban:User"..msg.chat_id_,result.id_)
@@ -5741,11 +5910,11 @@ Text = "•  المعرف غلط"
 send(msg.chat_id_, msg.id_,Text)
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 end
 if text == "رفع القيود" and Owner(msg) and GetSourseMember(msg) then     
-function Function_NiggA(extra, result, success)
-if DevNiggA(msg) then
+function Function_NIGGA(extra, result, success)
+if DevNIGGA(msg) then
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. result.id_ .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
 database:srem(bot_id.."GBan:User",result.sender_user_id_)
 database:srem(bot_id.."Ban:User"..msg.chat_id_,result.sender_user_id_)
@@ -5762,11 +5931,11 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 end
 if text and text:match("^كشف القيود @(.*)") and Owner(msg) and GetSourseMember(msg) then     
 local username = text:match("^كشف القيود @(.*)") 
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if result.id_ then
 if database:sismember(bot_id.."Muted:User"..msg.chat_id_,result.id_) then
 Muted = "مكتوم"
@@ -5788,11 +5957,11 @@ else
 send(msg.chat_id_, msg.id_,"•  المعرف غلط")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 end
 
 if text == "كشف القيود" and Owner(msg) and GetSourseMember(msg) then     
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if database:sismember(bot_id.."Muted:User"..msg.chat_id_,result.sender_user_id_) then
 Muted = "مكتوم"
 else
@@ -5811,7 +5980,7 @@ end
 Textt = "•  الحظر العام > "..GBan.."\n•  الحظر > "..Ban.."\n•  الكتم > "..Muted..""
 send(msg.chat_id_, msg.id_,Textt)
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 end
 if text and text:match("^ضع اسم (.*)") and Owner(msg) or text and text:match("^وضع اسم (.*)") and Owner(msg) and GetSourseMember(msg) then     
 local Name = text:match("^ضع اسم (.*)") or text:match("^وضع اسم (.*)") 
@@ -5864,7 +6033,7 @@ if b.first_name_ == false then
 send(msg.chat_id_, msg.id_,"•  حساب المنشئ محذوف")
 return false  
 end
-local UserName = (b.username_ or "NiGGa_SoUrcE")
+local UserName = (b.username_ or "NIGGA_SoUrcE")
 send(msg.chat_id_, msg.id_,"• منشئ المجموعه ~ ["..b.first_name_.."](T.me/"..UserName..")")  
 end,nil)   
 end
@@ -5884,7 +6053,7 @@ if b.first_name_ == false then
 send(msg.chat_id_, msg.id_,"• حساب المنشئ محذوف")
 return false  
 end
-local UserName = (b.username_ or "NiGGa_SoUrcE")
+local UserName = (b.username_ or "NIGGA_SoUrcE")
 send(msg.chat_id_, msg.id_,"• تم ترقية منشئ المجموعه ~ ["..b.first_name_.."](T.me/"..UserName..")")  
 database:sadd(bot_id.."creator"..msg.chat_id_,b.id_)
 end,nil)   
@@ -5928,7 +6097,7 @@ Namebot = (database:get(bot_id.."Name:Bot") or "نيغا")
 send(msg.chat_id_, msg.id_,"اسمي ["..Namebot.."] ") 
 end
 if text == "تغير اسم البوت" or text == "تغيير اسم البوت" or text == "حذف اسم البوت" then 
-if DevNiggA(msg) then
+if DevNIGGA(msg) then
 database:setex(bot_id.."Set:Name:Bot"..msg.sender_user_id_,300,true) 
 send(msg.chat_id_, msg.id_,"•  ارسل لي الاسم الان ")  
 end
@@ -5950,7 +6119,7 @@ end
 tdcli_function({ID="GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersKicked"},offset_ = 0,limit_ = 200}, delbans, {chat_id_ = msg.chat_id_, msg_id_ = msg.id_})    
 end
 if text=="اذاعه خاص" and msg.reply_to_message_id_ == 0 and DevBot(msg) then 
-if database:get(bot_id.."Status:Bc") and not DevNiggA(msg) then 
+if database:get(bot_id.."Status:Bc") and not DevNIGGA(msg) then 
 send(msg.chat_id_, msg.id_,"• الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
@@ -5959,7 +6128,7 @@ send(msg.chat_id_, msg.id_,"• ارسل لي سواء ~ { ملصق, متحرك�
 return false
 end 
 if text=="اذاعه" and msg.reply_to_message_id_ == 0 and DevBot(msg) then 
-if database:get(bot_id.."Status:Bc") and not DevNiggA(msg) then 
+if database:get(bot_id.."Status:Bc") and not DevNIGGA(msg) then 
 send(msg.chat_id_, msg.id_,"• الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
@@ -5968,7 +6137,7 @@ send(msg.chat_id_, msg.id_,"• ارسل لي سواء ~ { ملصق, متحرك�
 return false
 end  
 if text=="اذاعه بالتثبيت" and msg.reply_to_message_id_ == 0 and DevBot(msg) then 
-if database:get(bot_id.."Status:Bc") and not DevNiggA(msg) then 
+if database:get(bot_id.."Status:Bc") and not DevNIGGA(msg) then 
 send(msg.chat_id_, msg.id_,"• الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
@@ -5977,7 +6146,7 @@ send(msg.chat_id_, msg.id_,"• ارسل لي سواء ~ { ملصق, متحرك�
 return false
 end  
 if text=="اذاعه بالتوجيه" and msg.reply_to_message_id_ == 0  and DevBot(msg) then 
-if database:get(bot_id.."Status:Bc") and not DevNiggA(msg) then 
+if database:get(bot_id.."Status:Bc") and not DevNIGGA(msg) then 
 send(msg.chat_id_, msg.id_,"• الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
@@ -5986,7 +6155,7 @@ send(msg.chat_id_, msg.id_,"• ارسل لي التوجيه الان")
 return false
 end 
 if text=="اذاعه بالتوجيه خاص" and msg.reply_to_message_id_ == 0  and DevBot(msg) then 
-if database:get(bot_id.."Status:Bc") and not DevNiggA(msg) then 
+if database:get(bot_id.."Status:Bc") and not DevNIGGA(msg) then 
 send(msg.chat_id_, msg.id_,"• الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
@@ -6439,7 +6608,7 @@ end
 if text == 'ايدي' and tonumber(msg.reply_to_message_id_) == 0 and not database:get(bot_id..'Lock:ID:Bot'..msg.chat_id_) and GetSourseMember(msg) then      
 if not database:sismember(bot_id..'Spam:Group'..msg.sender_user_id_,text) then
 database:sadd(bot_id.."Spam:Group"..msg.sender_user_id_,text) 
-tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = msg.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
+tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = msg.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,Sv,success) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 if data.username_ then
 UserName_User = '@'..data.username_
@@ -6453,7 +6622,7 @@ local Status_Gps = Get_Rank(Id,msg.chat_id_)
 local message_edit = database:get(bot_id..'message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
 local Num_Games = database:get(bot_id.."NUM:GAMES"..msg.chat_id_..msg.sender_user_id_) or 0
 local Add_Mem = database:get(bot_id.."Add:Memp"..msg.chat_id_..":"..msg.sender_user_id_) or 0
-local Total_Photp = (taha.total_count_ or 0)
+local Total_Photp = (Sv.total_count_ or 0)
 local Texting = {
 " مو بشر حلغوم",
 "  فديت الصاك محح",
@@ -6467,7 +6636,7 @@ local Texting = {
 local Description = Texting[math.random(#Texting)]
 local get_id = database:get(bot_id.."Klesh:Id:Bot"..msg.chat_id_)
 if not database:get(bot_id..'Lock:ID:Bot:Photo'..msg.chat_id_) then
-if taha.photos_[0] then
+if Sv.photos_[0] then
 if get_id then
 get_id = get_id:gsub('#تعليق',Description) 
 get_id = get_id:gsub('#ايدي',Id) 
@@ -6478,12 +6647,12 @@ get_id = get_id:gsub('#رتبتك',Status_Gps)
 get_id = get_id:gsub('#تفاعلك',TotalMsg) 
 get_id = get_id:gsub('#نقاطك',Num_Games) 
 get_id = get_id:gsub('#صورك',Total_Photp) 
-sendPhoto(msg.chat_id_,msg.id_,taha.photos_[0].sizes_[1].photo_.persistent_id_,get_id)
+sendPhoto(msg.chat_id_,msg.id_,Sv.photos_[0].sizes_[1].photo_.persistent_id_,get_id)
 else
-sendPhoto(msg.chat_id_, msg.id_, taha.photos_[0].sizes_[1].photo_.persistent_id_,''..Description..'💕\n • ايديك - '..Id..'💕\n • معرفك - ['..UserName_User..']💕\n • رتبتك - '..Get_Rank(msg.sender_user_id_,msg.chat_id_)..'💕\n • موقعك - '..Status_Gps..'💕\n • تفاعلك - '..Total_message(NumMsg)..'💕\n • رسائلك - '..NumMsg..'\n • السحكات - '..message_edit..'💕\n • نقاطك - '..Num_Games..'💕\n')
+sendPhoto(msg.chat_id_, msg.id_, Sv.photos_[0].sizes_[1].photo_.persistent_id_,''..Description..'💕\n • ايديك - '..Id..'💕\n • معرفك - ['..UserName_User..']💕\n • رتبتك - '..Get_Rank(msg.sender_user_id_,msg.chat_id_)..'💕\n • موقعك - '..Status_Gps..'💕\n • تفاعلك - '..Total_message(NumMsg)..'💕\n • رسائلك - '..NumMsg..'\n • السحكات - '..message_edit..'💕\n • نقاطك - '..Num_Games..'💕\n')
 end
 else
-sendPhoto(msg.chat_id_, msg.id_, taha.photos_[0].sizes_[1].photo_.persistent_id_,'\n • الصوره - ليس لديك صور في حسبك\n💕\n • ايديك - '..Id..'💕\n • معرفك - ['..UserName_User..']💕\n • رتبتك - '..Get_Rank(msg.sender_user_id_,msg.chat_id_)..'💕\n • موقعك - '..Status_Gps..'💕\n • تفاعلك - '..Total_message(NumMsg)..'💕\n • رسائلك - '..NumMsg..'\n • السحكات - '..message_edit..'💕\n • نقاطك - '..Num_Games..'💕\n')
+sendPhoto(msg.chat_id_, msg.id_, Sv.photos_[0].sizes_[1].photo_.persistent_id_,'\n • الصوره - ليس لديك صور في حسبك\n💕\n • ايديك - '..Id..'💕\n • معرفك - ['..UserName_User..']💕\n • رتبتك - '..Get_Rank(msg.sender_user_id_,msg.chat_id_)..'💕\n • موقعك - '..Status_Gps..'💕\n • تفاعلك - '..Total_message(NumMsg)..'💕\n • رسائلك - '..NumMsg..'\n • السحكات - '..message_edit..'💕\n • نقاطك - '..Num_Games..'💕\n')
 end
 else
 if get_id then
@@ -6522,7 +6691,7 @@ database:setex(bot_id..'Delete:Time'..msg.chat_id_..':'..msg.sender_user_id_,300
 end
 end
 if text == 'ايدي' and tonumber(msg.reply_to_message_id_) > 0 and not database:get(bot_id..'Lock:ID:Bot'..msg.chat_id_) and GetSourseMember(msg) then      
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 if data.first_name_ == false then
 send(msg.chat_id_, msg.id_,'•  الحساب محذوف لا توجد معلوماته ')
@@ -6543,12 +6712,12 @@ local Add_Mem = database:get(bot_id.."Add:Memp"..msg.chat_id_..":"..data.id_) or
 send(msg.chat_id_, msg.id_,'*• ايديه - '..Id..'\n• رسائله - '..NumMsg..'\n• معرفه - *['..UserName_User..']*\n• تفاعله - '..TotalMsg..'\n• رتبته - '..Status_Gps..'\n• تعديلاته - '..message_edit..'\n• جهاته - '..Add_Mem..'\n• نوع الكشف - بالرد \n*') 
 end,nil)   
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NiggA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_NIGGA, nil)
 return false
 end
 if text and text:match("^ايدي @(.*)$")  and not database:get(bot_id..'Lock:ID:Bot'..msg.chat_id_) and GetSourseMember(msg) then      
 local username = text:match("^ايدي @(.*)$") 
-function Function_NiggA(extra, result, success)
+function Function_NIGGA(extra, result, success)
 if result.id_ then
 tdcli_function ({ID = "GetUser",user_id_ = result.id_},function(arg,data) 
 if data.username_ then
@@ -6569,7 +6738,7 @@ else
 send(msg.chat_id_, msg.id_,'• لا يوجد حساب بهاذا المعرف')
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NiggA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_NIGGA, nil)
 return false
 end
 if text == 'سمايلات' or text == 'سمايل' and GetSourseMember(msg) then
@@ -7045,7 +7214,7 @@ Teext = [[
  لعبة خمن >> خمن
  لعبة بات >> بات
 •━━━━━━• 
-- Ch [ᥰᎥᧁᧁꪖ - SoUrCe](https://t.me/NiGGa_SoUrcE)
+- Ch [ᥰᎥᧁᧁꪖ - SoUrCe](https://t.me/NIGGA_SoUrcE)
 ]]
 send(msg.chat_id_, msg.id_,Teext) 
 end
@@ -7132,15 +7301,15 @@ send(msg.chat_id_, msg.id_,"• تم اضافة له {"..numadded.."} من ال�
 end
 ------------------------------------------------------------
 if text and text:match("^اضف رسائل (%d+)$") and msg.reply_to_message_id_ == 0 and Constructor(msg) and GetSourseMember(msg) then
-taha = text:match("^اضف رسائل (%d+)$")
-database:set(bot_id.."id:user"..msg.chat_id_,taha)  
+Sv = text:match("^اضف رسائل (%d+)$")
+database:set(bot_id.."id:user"..msg.chat_id_,Sv)  
 database:setex(bot_id.."numadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
 send(msg.chat_id_, msg.id_, "✉ : ارسل لي عدد الرسائل الان") 
 return false
 end
 if text and text:match("^اضف نقاط (%d+)$") and msg.reply_to_message_id_ == 0 and Constructor(msg) and GetSourseMember(msg) then
-taha = text:match("^اضف نقاط (%d+)$")
-database:set(bot_id.."idgem:user"..msg.chat_id_,taha)  
+Sv = text:match("^اضف نقاط (%d+)$")
+database:set(bot_id.."idgem:user"..msg.chat_id_,Sv)  
 database:setex(bot_id.."gemadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
 send(msg.chat_id_, msg.id_, "• ارسل لي عدد النقاط الان") 
 return false
@@ -7164,7 +7333,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_=msg.chat_id_,message_id_=tonumber(msg.reply_to_message_id_)},reply, nil)
 return false
 end
-if text == "تنظيف المشتركين" and DevNiggA(msg) then
+if text == "تنظيف المشتركين" and DevNIGGA(msg) then
 local pv = database:smembers(bot_id..'UsersBot')  
 local sendok = 0
 for i = 1, #pv do
@@ -7190,7 +7359,7 @@ end,nil)
 end
 return false
 end
-if text == "تنظيف الكروبات" and DevNiggA(msg) then
+if text == "تنظيف الكروبات" and DevNIGGA(msg) then
 local group = database:smembers(bot_id..'Chek:Groups')  
 local w = 0
 local q = 0
@@ -7220,32 +7389,32 @@ if #group == i then
 if (w + q) == 0 then
 send(msg.chat_id_, msg.id_,'• لا توجد مجموعات وهميه ')   
 else
-local taha = (w + q)
-local sendok = #group - taha
+local Sv = (w + q)
+local sendok = #group - Sv
 if q == 0 then
-taha = ''
+Sv = ''
 else
-taha = '\n•  تم ازالة ~ '..q..' مجموعات من البوت'
+Sv = '\n•  تم ازالة ~ '..q..' مجموعات من البوت'
 end
 if w == 0 then
-storm = ''
+Vs = ''
 else
-storm = '\n•  تم ازالة ~'..w..' مجموعه لان البوت عضو'
+Vs = '\n•  تم ازالة ~'..w..' مجموعه لان البوت عضو'
 end
-send(msg.chat_id_, msg.id_,'*•  عدد المجموعات الان ~ '..#group..' مجموعه '..storm..''..taha..'\n• اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
+send(msg.chat_id_, msg.id_,'*•  عدد المجموعات الان ~ '..#group..' مجموعه '..Vs..''..Sv..'\n• اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
 end
 end
 end,nil)
 end
 return false
 end
-if text == ("تحديث السورس") and DevNiggA(msg) then  
+if text == ("تحديث السورس") and DevNIGGA(msg) then  
 send(msg.chat_id_,msg.id_,'• تم التحديث')
-os.execute('rm -rf NiggA.lua')
+os.execute('rm -rf NIGGA.lua')
 os.execute('rm -rf start.lua')
-os.execute('wget https://raw.githubusercontent.com/DEV-NAG/DEV-NAG/main/NiggA.lua')
+os.execute('wget https://raw.githubusercontent.com/DEV-NAG/DEV-NAG/main/NIGGA.lua')
 os.execute('wget https://raw.githubusercontent.com/DEV-NAG/DEV-NAG/main/start.lua')
-dofile('NiggA.lua')  
+dofile('NIGGA.lua')  
 return false
 end
 if text == "راسلني" then
@@ -7278,7 +7447,7 @@ ge = https.request('https://black-source.tk/BlackTeAM/Calculateage.php?age='..UR
 ag = JSON.decode(ge)
 send(msg.chat_id_, msg.id_, ag.ok.hso)
 end
-if text == 'السيرفر' and DevNiggA(msg) then 
+if text == 'السيرفر' and DevNIGGA(msg) then 
 send(msg.chat_id_, msg.id_, io.popen([[
 linux_version=`lsb_release -ds`
 memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
@@ -7301,16 +7470,16 @@ local list = database:smembers(bot_id..'Chek:Groups')
 local memo = database:smembers(bot_id..'UsersBot')  
 local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
 for k,v in pairs(list) do      
-NAME = 'NiggA Chat'
+NAME = 'NIGGA Chat'
 ASAS = database:smembers(bot_id.."Basic:Constructor"..v)
 MNSH = database:smembers(bot_id.."Constructor"..v)
 MDER = database:smembers(bot_id.."Manager"..v)
 MOD = database:smembers(bot_id.."Mod:User"..v)
 link = database:get(bot_id.."Link_Group"..v) or ''
 if k == 1 then
-t = t..'"'..v..'":{"NiggA":"'..NAME..'",'
+t = t..'"'..v..'":{"NIGGA":"'..NAME..'",'
 else
-t = t..',"'..v..'":{"NiggA":"'..NAME..'",'
+t = t..',"'..v..'":{"NIGGA":"'..NAME..'",'
 end
 if #ASAS ~= 0 then 
 t = t..'"ASAS":['
@@ -7416,7 +7585,7 @@ if audios.Info == true then
 local Text ='• تم اختيار المقطع الصوتي لك'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- Black TeAM .',url="t.me/NiGGa_SoUrcE"}},
+{{text = '- Black TeAM .',url="t.me/NIGGA_SoUrcE"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -7515,7 +7684,7 @@ end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
 end
-if text and text:match("^تعين عدد الاعضاء (%d+)$") and DevNiggA(msg) then
+if text and text:match("^تعين عدد الاعضاء (%d+)$") and DevNIGGA(msg) then
 local Num = text:match("تعين عدد الاعضاء (%d+)$") 
 database:set(bot_id..'Num:Add:Bot',Num) 
 send(msg.chat_id_, msg.id_,'•  تم وضع عدد الاعضاء *~'..Num..'* عضو')
@@ -7536,21 +7705,21 @@ local Groups = database:scard(bot_id..'Chek:Groups')
 local Users = database:scard(bot_id..'UsersBot')  
 send(msg.chat_id_, msg.id_,'• احصائيات البوت \n\n• عدد المجموعات *~ '..Groups..'\n• عدد المشتركين ~ '..Users..'*')
 end
-if text == 'جلب نسخه احتياطيه' and DevNiggA(msg) then
+if text == 'جلب نسخه احتياطيه' and DevNIGGA(msg) then
 local list = database:smembers(bot_id..'Chek:Groups')  
 local memo = database:smembers(bot_id..'UsersBot')  
 local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
 for k,v in pairs(list) do   
-NAME = 'NiggA Chat'
+NAME = 'NIGGA Chat'
 ASAS = database:smembers(bot_id.."Basic:Constructor"..v)
 MNSH = database:smembers(bot_id.."Constructor"..v)
 MDER = database:smembers(bot_id.."Manager"..v)
 MOD = database:smembers(bot_id.."Mod:User"..v)
 link = database:get(bot_id.."Link_Group"..v) or ''
 if k == 1 then
-t = t..'"'..v..'":{"NiggA":"'..NAME..'",'
+t = t..'"'..v..'":{"NIGGA":"'..NAME..'",'
 else
-t = t..',"'..v..'":{"NiggA":"'..NAME..'",'
+t = t..',"'..v..'":{"NIGGA":"'..NAME..'",'
 end
 if #ASAS ~= 0 then 
 t = t..'"ASAS":['
@@ -7625,10 +7794,10 @@ send(msg.chat_id_, msg.id_,"["..data.first_name_.."](T.me/"..data.username_..")"
 end,nil)   
 end
 end
-if text == 'الملفات' and DevNiggA(msg) then
+if text == 'الملفات' and DevNIGGA(msg) then
 t = '• جميع الملفات : \n — — — — — — — — — \n'
 i = 0
-for v in io.popen('ls NiggA_Files'):lines() do
+for v in io.popen('ls NIGGA_Files'):lines() do
 if v:match(".lua$") then
 i = i + 1
 t = t..i..'*~ '..v..'*\n'
@@ -7637,8 +7806,8 @@ end
 send(msg.chat_id_, msg.id_,t)
 end
 if text == "متجر الملفات" or text == 'المتجر' then
-if DevNiggA(msg) then
-local Get_Files, res = https.request("https://raw.githubusercontent.com/DEV-NAG/files_NiggA/main/getfile.json")
+if DevNIGGA(msg) then
+local Get_Files, res = https.request("https://raw.githubusercontent.com/DEV-NAG/files_NIGGA/main/getfile.json")
 if res == 200 then
 local Get_info, res = pcall(JSON.decode,Get_Files);
 vardump(res.plugins_)
@@ -7647,7 +7816,7 @@ local TextS = "\n• اهلا بك في متجر ملفات نيغا\n• يوج
 local TextE = "\n — — — — — — — — — \n• تدل علامة (✔) الملف مفعل\n".."• تدل علامة (✖) الملف معطل\n"
 local NumFile = 0
 for name,Info in pairs(res.plugins_) do
-local Check_File_is_Found = io.open("NiggA_Files/"..name,"r")
+local Check_File_is_Found = io.open("NIGGA_Files/"..name,"r")
 if Check_File_is_Found then
 io.close(Check_File_is_Found)
 CeckFile = "(✔)"
@@ -7666,54 +7835,54 @@ return false
 end
 end
 
-if text and text:match("^(تعطيل ملف) (.*)(.lua)$") and DevNiggA(msg) then
+if text and text:match("^(تعطيل ملف) (.*)(.lua)$") and DevNIGGA(msg) then
 local name_t = {string.match(text, "^(تعطيل ملف) (.*)(.lua)$")}
 local file = name_t[2]..'.lua'
-local file_bot = io.open("NiggA_Files/"..file,"r")
+local file_bot = io.open("NIGGA_Files/"..file,"r")
 if file_bot then
 io.close(file_bot)
 t = "*•  الملف > {"..file.."}\n•  تم تعطيله وحذفه بنجاح \n✓*"
 else
 t = "*•  بالتاكيد تم تعطيل وحذف ملف > {"..file.."} \n✓*"
 end
-local json_file, res = https.request("https://raw.githubusercontent.com/DEV-NAG/files_NiggA/main/files_NiggA/"..file)
+local json_file, res = https.request("https://raw.githubusercontent.com/DEV-NAG/files_NIGGA/main/files_NIGGA/"..file)
 if res == 200 then
-os.execute("rm -fr NiggA_Files/"..file)
+os.execute("rm -fr NIGGA_Files/"..file)
 send(msg.chat_id_, msg.id_,t) 
-dofile('NiggA.lua')  
+dofile('NIGGA.lua')  
 else
 send(msg.chat_id_, msg.id_,"*•  عذرا لا يوجد هاكذا ملف في المتجر *\n") 
 end
 return false
 end
-if text and text:match("^(تفعيل ملف) (.*)(.lua)$") and DevNiggA(msg) then
+if text and text:match("^(تفعيل ملف) (.*)(.lua)$") and DevNIGGA(msg) then
 local name_t = {string.match(text, "^(تفعيل ملف) (.*)(.lua)$")}
 local file = name_t[2]..'.lua'
-local file_bot = io.open("NiggA_Files/"..file,"r")
+local file_bot = io.open("NIGGA_Files/"..file,"r")
 if file_bot then
 io.close(file_bot)
 t = "*•  بالتاكيد تم تنزيل وتفعيل ملف > {"..file.."} \n✓*"
 else
 t = "*•  الملف > {"..file.."}\n•  تم تنزيله وتفعيله بنجاح \n*"
 end
-local json_file, res = https.request("https://raw.githubusercontent.com/DEV-NAG/files_NiggA/main/files_NiggA/"..file)
+local json_file, res = https.request("https://raw.githubusercontent.com/DEV-NAG/files_NIGGA/main/files_NIGGA/"..file)
 if res == 200 then
-local chek = io.open("NiggA_Files/"..file,'w+')
+local chek = io.open("NIGGA_Files/"..file,'w+')
 chek:write(json_file)
 chek:close()
 send(msg.chat_id_, msg.id_,t) 
-dofile('NiggA.lua')  
+dofile('NIGGA.lua')  
 else
 send(msg.chat_id_, msg.id_,"*•  عذرا لا يوجد هاكذا ملف في المتجر *\n") 
 end
 return false
 end
-if text == "مسح جميع الملفات" and DevNiggA(msg) then
-os.execute("rm -fr NiggA_Files/*")
+if text == "مسح جميع الملفات" and DevNIGGA(msg) then
+os.execute("rm -fr NIGGA_Files/*")
 send(msg.chat_id_,msg.id_,"• تم حذف جميع الملفات")
 return false
 end
-if text == 'نقل الاحصائيات' and DevNiggA(msg) then
+if text == 'نقل الاحصائيات' and DevNIGGA(msg) then
 local Users = database:smembers(''..bot_id.."userss")
 local Groups = database:smembers(''..bot_id..'groups') 
 for i = 1, #Groups do
@@ -7724,11 +7893,11 @@ database:sadd(bot_id..'UsersBot',Users[i])
 end
 send(msg.chat_id_, msg.id_,'• تم نقل : '..#Groups..' كروب\n• تم نقل : '..#Users..' مشترك \n• من التحديث القديم الى التحديث الجديد')
 end
-if text == 'حذف كليشه المطور' and DevNiggA(msg) then
+if text == 'حذف كليشه المطور' and DevNIGGA(msg) then
 database:del(bot_id..'Text_Dev')
 send(msg.chat_id_, msg.id_,'•  تم حذف كليشه المطور')
 end
-if text == 'وضع كليشه المطور' and DevNiggA(msg) then
+if text == 'وضع كليشه المطور' and DevNIGGA(msg) then
 database:set(bot_id..'Set:Text_Dev'..msg.chat_id_,true)
 send(msg.chat_id_,msg.id_,'•  ارسل الكليشه الان')
 return false
@@ -7744,7 +7913,7 @@ database:del(bot_id..'Set:Text_Dev'..msg.chat_id_)
 send(msg.chat_id_,msg.id_,'• تم حفظ كليشة المطور')
 return false
 end
-if text == 'رفع النسخه الاحتياطيه' and DevNiggA(msg) then   
+if text == 'رفع النسخه الاحتياطيه' and DevNIGGA(msg) then   
 if tonumber(msg.reply_to_message_id_) > 0 then
 function by_reply(extra, result, success)   
 if result.content_.document_ then 
@@ -7756,14 +7925,14 @@ end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
 end
-if text == "تحديث" and DevNiggA(msg) then
-dofile("NiggA.lua")  
+if text == "تحديث" and DevNIGGA(msg) then
+dofile("NIGGA.lua")  
 send(msg.chat_id_, msg.id_, "• تم التحديث")
 end
 
 if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' and GetSourseMember(msg) then       
 Text = [[
-╭• [𝑵𝒊𝑮𝑮𝑨 𝑺𝑶𝑼𝑹𝑺𝑬](t.me/NiGGa_SoUrcE) •╮
+╭• [𝑵𝒊𝑮𝑮𝑨 𝑺𝑶𝑼𝑹𝑺𝑬](t.me/NIGGA_SoUrcE) •╮
 ]]
 send(msg.chat_id_, msg.id_,Text)
 end
@@ -7793,7 +7962,7 @@ Text = [[
 send(msg.chat_id_, msg.id_,Text)
 return false
 end
-if text == '@IIIIIX' or text == '@NiGGa_SoUrcE' or text == 'مودي البدراني' then
+if text == '@IIIIIX' or text == '@NIGGA_SoUrcE' or text == 'مودي البدراني' then
 Text = [[
 @IIIIIX هذا مطور سورس نيغا
 ]]
@@ -7826,17 +7995,19 @@ send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 return false
 end
 
-if text == 'رابط الحذف' or text == 'رابط حذف' or text == 'احذف حسابي' or text == 'بوت حذف' then       
-local Text ='اهلا بك احذف حسابك ورتاح'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text =  'رابط حذف تليكرام الرسمي',url="https://my.telegram.org/auth?to=delete"}},
-{{text =  'قناة السورس',url="t.me/XQXQX"}},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text='..URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+if text == 'رابط الحذف' or text == 'رابط حذف' then
+t =[[
+رابط الحذف في جميع مواقع التواصل ●
+فكر قبل لا تتسرع وتروح
+ٴ●○━━━∴━━━●○ٴ
+ ● رابط حذف  [Telegram](https://my.telegram.org/auth?to=delete) ܁
+ ● رابط حذف [instagram](https://www.instagram.com/accounts/login/?next=/accounts/remove/request/permanent/) ܁
+ ● رابط حذف [Facebook](https://www.facebook.com/help/deleteaccount) ܁
+ ● رابط حذف [Snspchat](https://accounts.snapchat.com/accounts/login?continue=https%3A%2F%2Faccounts.snapchat.com%2Faccounts%2Fdeleteaccount) ܁
+]]
+send(msg.chat_id_, msg.id_,t) 
+return false
 end
-
 if text == 'الاوامر' and GetSourseMember(msg) then     
 if not Addictive(msg) then
 send(msg.chat_id_, msg.id_,'• عذرا الاوامر هذا لا تخصك ') 
@@ -7851,7 +8022,7 @@ local Text =[[
 •  ④ > لعرض اوامر المنشئين
 •  ⑤ > لعرض اوامر المطورين
 *•●○●○●○●○●•ٴ*
-𝘊𝘩 - [ᥰᎥᧁᧁꪖ](t.me/NiGGa_SoUrcE)•
+𝘊𝘩 - [ᥰᎥᧁᧁꪖ](t.me/NIGGA_SoUrcE)•
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -7886,7 +8057,7 @@ send(msg.chat_id_, msg.id_,'• البوت ليس ادمن يرجى ترقيتي
 return false  
 end
 tdcli_function ({ ID = "GetChannelFull", channel_id_ = msg.chat_id_:gsub("-100","")}, function(arg,data)  
-if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Num:Add:Bot') or 0) and not DevNiggA(msg) then
+if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Num:Add:Bot') or 0) and not DevNIGGA(msg) then
 send(msg.chat_id_, msg.id_,'• عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'Num:Add:Bot') or 0)..'* عضو')
 return false
 end
@@ -7927,7 +8098,7 @@ Text = '• تم تفعيل مجموعه جديده\n'..
 '\n• عدد اعضاء المجموعه *~ '..NumMember..'*'..
 '\n• اسم المجموعه ~ ['..NameChat..']'..
 '\n• الرابط ~ ['..LinkGp..']'
-if not DevNiggA(msg) then
+if not DevNIGGA(msg) then
 sendText(Id_Sudo,Text,0,'md')
 end
 end
@@ -7964,7 +8135,7 @@ Text = '• تم تعطيل مجموعه جديده\n'..
 '\n• ايدي المجموعه ~ `'..IdChat..'`'..
 '\n• اسم المجموعه ~ ['..NameChat..']'..
 '\n• الرابط ~ ['..LinkGp..']'
-if not DevNiggA(msg) then
+if not DevNIGGA(msg) then
 sendText(Id_Sudo,Text,0,'md')
 end
 end
@@ -7992,7 +8163,7 @@ end
 if database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
 send(msg.chat_id_, msg.id_,'• المجموعه مفعله سابقا ')
 else
-if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Num:Add:Bot') or 0) and not DevNiggA(msg) then
+if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Num:Add:Bot') or 0) and not DevNIGGA(msg) then
 send(msg.chat_id_, msg.id_,'• عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'Num:Add:Bot') or 0)..'* عضو')
 return false
 end
@@ -8031,7 +8202,7 @@ Text = '• تم تفعيل مجموعه جديده\n'..
 '\n• عدد اعضاء المجموعه *~ '..NumMember..'*'..
 '\n• اسم المجموعه ~ ['..NameChat..']'..
 '\n• الرابط ~ ['..LinkGp..']'
-if not DevNiggA(msg) then
+if not DevNIGGA(msg) then
 sendText(Id_Sudo,Text,0,'md')
 end
 end
@@ -8045,8 +8216,8 @@ end
 
 if Chat_Type == 'UserBot' then
 if text == '/start' then  
-if DevNiggA(msg) then
-local Text =  '-  𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𝒏𝒊𝒈𝒈𝒂 المطور الاساسي \n سورس نيغا \n يمكنك تحكم في البوتات من الكيبورد أسفل \n[تابع جديدنا](t.me/NiGGa_SoUrcE) '
+if DevNIGGA(msg) then
+local Text =  '-  𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𝒏𝒊𝒈𝒈𝒂 المطور الاساسي \n سورس نيغا \n يمكنك تحكم في البوتات من الكيبورد أسفل \n[تابع جديدنا](t.me/NIGGA_SoUrcE) '
 local keyboard = {
 {'الاحصائيات •','تغيير المطور الاساسي •'},
 {'تفعيل التواصل •','تعطيل التواصل •'},
@@ -8075,7 +8246,7 @@ if start then
 Test = start
 else
 tdcli_function ({ID = "GetUser",user_id_ = Sudo},function(arg,data) 
-Test =  '- هلا عزيزي\n- انا بوت اسمي '..Namebot..'\n- اختصاصي حمايه المجموعات\n من التفليش وبعض الاوامر الخدميه للتسليه والخ…\n-لتفعيلي اتبع الخطوات…↓\n- اضفني الي مجموعتك وقم بترقيتي ادمن واكتب كلمه { تفعيل }  ويستطيع >{ منشئ او المشرفين } بتفعيلي فقط\n[•𝘊𝘩 𝘴𝘰𝘶𝘳𝘴𝘦•](http://t.me/NiGGa_SoUrcE)'
+Test =  '- هلا عزيزي\n- انا بوت اسمي '..Namebot..'\n- اختصاصي حمايه المجموعات\n من التفليش وبعض الاوامر الخدميه للتسليه والخ…\n-لتفعيلي اتبع الخطوات…↓\n- اضفني الي مجموعتك وقم بترقيتي ادمن واكتب كلمه { تفعيل }  ويستطيع >{ منشئ او المشرفين } بتفعيلي فقط\n[•𝘊𝘩 𝘴𝘰𝘶𝘳𝘴𝘦•](http://t.me/NIGGA_SoUrcE)'
 end,nil)
 end 
 send(msg.chat_id_, msg.id_, Test) 
@@ -8159,7 +8330,7 @@ Zs = {
 }
 send_inlin_key(msg.chat_id_,ZsText,Zs,msg.id_)
 end
-if not DevNiggA(msg) and not database:sismember(bot_id..'BaN:In:User',msg.sender_user_id_) and not database:get(bot_id..'Texting:In:Bv') and not database:get(bot_id.."Filter"..msg.sender_user_id_) then
+if not DevNIGGA(msg) and not database:sismember(bot_id..'BaN:In:User',msg.sender_user_id_) and not database:get(bot_id..'Texting:In:Bv') and not database:get(bot_id.."Filter"..msg.sender_user_id_) then
 send(msg.sender_user_id_,msg.id_,'• تمت ارسال رسالتك الى المطور')    
 tdcli_function({ID ="GetChat",chat_id_=Id_Sudo},function(arg,chat)  
 tdcli_function({ID ="GetChat",chat_id_=msg.sender_user_id_},function(arg,chat)  
@@ -8170,7 +8341,7 @@ if data and data.messages_ and data.messages_[0].content_.sticker_ then
 sendText(Id_Sudo,'• تم ارسال الملصق من ~ ['..string.sub(ta.first_name_,0, 40)..'](tg://user?id='..ta.id_..')',0,'md') 
 return false
 end;end;end,nil);end,nil);end,nil);end,nil);end
-if DevNiggA(msg) and msg.reply_to_message_id_ ~= 0  then    
+if DevNIGGA(msg) and msg.reply_to_message_id_ ~= 0  then    
 tdcli_function({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)},function(extra, result, success) 
 if result.forward_info_.sender_user_id_ then     
 id_user = result.forward_info_.sender_user_id_    
@@ -8210,7 +8381,7 @@ Text = '• تمت ارسال البصمه اليه .. '
 end     
 sendText(Id_Sudo,Text..'\n'..'•  ~ ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')',0,'md') 
 end,nil);end,nil);end,nil);end,nil);end 
-if DevNiggA(msg) then
+if DevNIGGA(msg) then
 if text == 'تفعيل التواصل •' then  
 database:del(bot_id..'Texting:In:Bv') 
 send(msg.chat_id_, msg.id_,'•  تم تفعيل التواصل ') 
@@ -8305,40 +8476,40 @@ if #group == i then
 if (w + q) == 0 then
 send(msg.chat_id_, msg.id_,'• لا توجد مجموعات وهميه ')   
 else
-local taha = (w + q)
-local sendok = #group - taha
+local Sv = (w + q)
+local sendok = #group - Sv
 if q == 0 then
-taha = ''
+Sv = ''
 else
-taha = '\n•  تم ازالة ~ '..q..' مجموعات من البوت'
+Sv = '\n•  تم ازالة ~ '..q..' مجموعات من البوت'
 end
 if w == 0 then
-storm = ''
+Vs = ''
 else
-storm = '\n•  تم ازالة ~'..w..' مجموعه لان البوت عضو'
+Vs = '\n•  تم ازالة ~'..w..' مجموعه لان البوت عضو'
 end
-send(msg.chat_id_, msg.id_,'*•  عدد المجموعات الان ~ '..#group..' مجموعه '..storm..''..taha..'\n• اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
+send(msg.chat_id_, msg.id_,'*•  عدد المجموعات الان ~ '..#group..' مجموعه '..Vs..''..Sv..'\n• اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
 end
 end
 end,nil)
 end
 return false
 end
-if text =='تغيير المطور الاساسي •' and NiggADevSou(msg) then
+if text =='تغيير المطور الاساسي •' and NIGGADevSou(msg) then
 send(msg.chat_id_, msg.id_,'• ارسل ايدي المطور الاساسي الجديد')
 database:set(bot_id..'Ed:DevBots',true) 
 end
-if text =='تغيير المطور الاساسي •' and not NiggADevSou(msg) then
+if text =='تغيير المطور الاساسي •' and not NIGGADevSou(msg) then
 send(msg.chat_id_, msg.id_,'• تسرسح')
 end
-if text == ("مسح الثانويين •") and not NiggADevSou(msg) then
+if text == ("مسح الثانويين •") and not NIGGADevSou(msg) then
 send(msg.chat_id_, msg.id_,'• تسرسح')
 end
-if text == ("مسح الثانويين •") and NiggADevSou(msg) then
+if text == ("مسح الثانويين •") and NIGGADevSou(msg) then
 database:del(bot_id.."DEV:Sudo:T")
 send(msg.chat_id_, msg.id_, "\n•  تم مسح قائمة المطورين الثانويين  ")
 end
-if text == ("الثانويين •") and DevNiggA(msg) then
+if text == ("الثانويين •") and DevNIGGA(msg) then
 local list = database:smembers(bot_id.."DEV:Sudo:T")
 t = "\n• قائمة مطورين الثانويين للبوت \n — — — — — — — — — \n"
 for k,v in pairs(list) do
@@ -8362,7 +8533,7 @@ local A = io.open("sudo.lua", 'w')
 A:write([[
 s = "ZZZZD"
 
-q = "NiGGa_SoUrcE"
+q = "NIGGA_SoUrcE"
 
 token = "]]..token..[["
 
@@ -8381,7 +8552,7 @@ database:set(bot_id..'Free:Add:Bots',true)
 send(msg.chat_id_, msg.id_,'\n• تم تعطيل البوت الخدمي') 
 end
 if text=="اذاعه خاص •" and msg.reply_to_message_id_ == 0 then
-if database:get(bot_id.."Status:Bc") and not DevNiggA(msg) then 
+if database:get(bot_id.."Status:Bc") and not DevNIGGA(msg) then 
 send(msg.chat_id_, msg.id_,"• الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
@@ -8390,7 +8561,7 @@ send(msg.chat_id_, msg.id_,"• ارسل لي سواء ~ { ملصق, متحرك�
 return false
 end 
 if text=="اذاعه •" and msg.reply_to_message_id_ == 0 then
-if database:get(bot_id.."Status:Bc") and not DevNiggA(msg) then 
+if database:get(bot_id.."Status:Bc") and not DevNIGGA(msg) then 
 send(msg.chat_id_, msg.id_,"• الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
@@ -8399,7 +8570,7 @@ send(msg.chat_id_, msg.id_,"• ارسل لي سواء ~ { ملصق, متحرك�
 return false
 end  
 if text=="اذاعه بالتوجيه •" and msg.reply_to_message_id_ == 0  then
-if database:get(bot_id.."Status:Bc") and not DevNiggA(msg) then 
+if database:get(bot_id.."Status:Bc") and not DevNIGGA(msg) then 
 send(msg.chat_id_, msg.id_,"• الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
@@ -8408,7 +8579,7 @@ send(msg.chat_id_, msg.id_,"• ارسل لي التوجيه الان")
 return false
 end 
 if text=="اذاعه بالتوجيه خاص •" and msg.reply_to_message_id_ == 0  then
-if database:get(bot_id.."Status:Bc") and not DevNiggA(msg) then 
+if database:get(bot_id.."Status:Bc") and not DevNIGGA(msg) then 
 send(msg.chat_id_, msg.id_,"• الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
@@ -8456,16 +8627,16 @@ if text == 'حذف كليشه ستارت •' then
 database:del(bot_id..'Start:Bot') 
 send(msg.chat_id_, msg.id_,'• تم حذف كليشه ستارت') 
 end
-if text == ("مسح قائمه العام •") and DevNiggA(msg) then
+if text == ("مسح قائمه العام •") and DevNIGGA(msg) then
 database:del(bot_id.."GBan:User")
 send(msg.chat_id_, msg.id_, "\n• تم مسح قائمه العام")
 return false
 end
-if text == ("مسح المطورين •") and DevNiggA(msg) then
+if text == ("مسح المطورين •") and DevNIGGA(msg) then
 database:del(bot_id.."Sudo:User")
 send(msg.chat_id_, msg.id_, "\n•  تم مسح قائمة المطورين  ")
 end
-if text == ("قائمه العام •") and DevNiggA(msg) then
+if text == ("قائمه العام •") and DevNIGGA(msg) then
 local list = database:smembers(bot_id.."GBan:User")
 t = "\n• قائمة المحظورين عام \n — — — — — — — — — \n"
 for k,v in pairs(list) do
@@ -8482,7 +8653,7 @@ end
 send(msg.chat_id_, msg.id_, t)
 return false
 end
-if text == ("المطورين •") and DevNiggA(msg) then
+if text == ("المطورين •") and DevNIGGA(msg) then
 local list = database:smembers(bot_id.."Sudo:User")
 t = "\n• قائمة مطورين البوت \n — — — — — — — — — \n"
 for k,v in pairs(list) do
@@ -8503,16 +8674,16 @@ local list = database:smembers(bot_id..'Chek:Groups')
 local memo = database:smembers(bot_id..'UsersBot')  
 local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
 for k,v in pairs(list) do   
-NAME = 'NiggA Chat'
+NAME = 'NIGGA Chat'
 ASAS = database:smembers(bot_id.."Basic:Constructor"..v)
 MNSH = database:smembers(bot_id.."Constructor"..v)
 MDER = database:smembers(bot_id.."Manager"..v)
 MOD = database:smembers(bot_id.."Mod:User"..v)
 link = database:get(bot_id.."Link_Group"..v) or ''
 if k == 1 then
-t = t..'"'..v..'":{"NiggA":"'..NAME..'",'
+t = t..'"'..v..'":{"NIGGA":"'..NAME..'",'
 else
-t = t..',"'..v..'":{"NiggA":"'..NAME..'",'
+t = t..',"'..v..'":{"NIGGA":"'..NAME..'",'
 end
 if #ASAS ~= 0 then 
 t = t..'"ASAS":['
@@ -8579,15 +8750,15 @@ sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '•:  عد�
 end
 if text == "تحديث السورس •" then
 send(msg.chat_id_,msg.id_,'• تم التحديث')
-os.execute('rm -rf NiggA.lua')
+os.execute('rm -rf NIGGA.lua')
 os.execute('rm -rf start.lua')
-os.execute('wget https://raw.githubusercontent.com/DEV-NAG/DEV-NAG/main/NiggA.lua')
+os.execute('wget https://raw.githubusercontent.com/DEV-NAG/DEV-NAG/main/NIGGA.lua')
 os.execute('wget https://raw.githubusercontent.com/DEV-NAG/DEV-NAG/main/start.lua')
-dofile('NiggA.lua')  
+dofile('NIGGA.lua')  
 return false
 end
 if text == "تحديث الملفات •" then
-dofile("NiggA.lua")  
+dofile("NIGGA.lua")  
 send(msg.chat_id_, msg.id_, "• تم التحديث")
 end
 end
@@ -8644,7 +8815,7 @@ local Teext =[[
 • الكلايش
 • السيلفي
 *•●○●○●○●•ٴ*
-𝘊𝘩 - [ᥰᎥᧁᧁꪖ](t.me/NiGGa_SoUrcE)•
+𝘊𝘩 - [ᥰᎥᧁᧁꪖ](t.me/NIGGA_SoUrcE)•
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -8717,7 +8888,7 @@ local Teext =[[
 • مسح الصلاحيات
 • مسح الرابط
 *•●○●○●○●•ٴ*
-𝘊𝘩 - [ᥰᎥᧁᧁꪖ](t.me/NiGGa_SoUrcE)•
+𝘊𝘩 - [ᥰᎥᧁᧁꪖ](t.me/NIGGA_SoUrcE)•
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -8765,7 +8936,7 @@ local Teext =[[
 • تفعيل/تعطيل اوامر التحشيش
 • تفعيل/تعطيل الرابط/جلب الرابط
 *•●○●○●○●○●•ٴ*
-𝘊𝘩 - [ᥰᎥᧁᧁꪖ](t.me/NiGGa_SoUrcE)•
+𝘊𝘩 - [ᥰᎥᧁᧁꪖ](t.me/NIGGA_SoUrcE)•
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -8802,7 +8973,7 @@ local Teext =[[
 • اضف رسائل + العدد بالرد
 • اضف نقاط + العدد بالرد
 *•●○●○●○●•ٴ*
-𝘊𝘩 - [ᥰᎥᧁᧁꪖ](t.me/NiGGa_SoUrcE)•
+𝘊𝘩 - [ᥰᎥᧁᧁꪖ](t.me/NIGGA_SoUrcE)•
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -8862,7 +9033,7 @@ local Teext =[[
 • رفع/تنزيل منشئ اساسي
 • مسح المنشئين الاساسين
 *●○●○●○●○ٴ*
-𝘊𝘩 - [ᥰᎥᧁᧁꪖ](t.me/NiGGa_SoUrcE)•
+𝘊𝘩 - [ᥰᎥᧁᧁꪖ](t.me/NIGGA_SoUrcE)•
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -8907,7 +9078,7 @@ local Teext =[[
 *• رزله*
 *•هينه*
 *•●○●○●○●○●•ٴ*
-𝘊𝘩 - [ᥰᎥᧁᧁꪖ](t.me/NiGGa_SoUrcE)•
+𝘊𝘩 - [ᥰᎥᧁᧁꪖ](t.me/NIGGA_SoUrcE)•
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -8932,7 +9103,7 @@ local Teext =[[
 •  ④ > لعرض اوامر المنشئين
 •  ⑤ > لعرض اوامر المطورين
 *•●○●○●○●○●•ٴ*
-𝘊𝘩 - [ᥰᎥᧁᧁꪖ](t.me/NiGGa_SoUrcE)•
+𝘊𝘩 - [ᥰᎥᧁᧁꪖ](t.me/NIGGA_SoUrcE)•
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -8948,7 +9119,7 @@ local idchci = "-100"..idch
 local animation = DAata:match("^animation(.*)$"):gsub('chatid',''):gsub('chatid',''):gsub(idch,''):gsub('-100','')
 local Text ="• تم اللغاء منعها بنجاح"
 inline = {
-{{text = '•  ᥰᎥᧁᧁꪖ  .',url='http://t.me/NiGGa_SoUrcE'}},
+{{text = '•  ᥰᎥᧁᧁꪖ  .',url='http://t.me/NIGGA_SoUrcE'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
@@ -8959,7 +9130,7 @@ local idchci = database:get(bot_id.."Filter:msg")
 local photo = DAata:match("^pito(.*)$")
 local Text ="• تم اللغاء منعها بنجاح"
 inline = {
-{{text = '•  ᥰᎥᧁᧁꪖ  .',url='http://t.me/NiGGa_SoUrcE'}},
+{{text = '•  ᥰᎥᧁᧁꪖ  .',url='http://t.me/NIGGA_SoUrcE'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
@@ -8971,7 +9142,7 @@ local idchci = "-100"..idch
 local Sticker = DAata:match("^Sticker(.*)$"):gsub('chatid',''):gsub('chatid',''):gsub(idch,''):gsub('-100','')
 local Text ="• تم اللغاء منعه بنجاح"
 inline = {
-{{text = '•  ᥰᎥᧁᧁꪖ  .',url='http://t.me/NiGGa_SoUrcE'}},
+{{text = '•  ᥰᎥᧁᧁꪖ  .',url='http://t.me/NIGGA_SoUrcE'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
@@ -8981,7 +9152,7 @@ if DAata and DAata:match("^delallSticker(.*)$") and Addictive(data) then
 local delallSticker = DAata:match("^delallSticker(.*)$")
 local Text ="• تم اللغاء منع كل المتحركات"
 inline = {
-{{text = '•  ᥰᎥᧁᧁꪖ  .',url='http://t.me/NiGGa_SoUrcE'}},
+{{text = '•  ᥰᎥᧁᧁꪖ  .',url='http://t.me/NIGGA_SoUrcE'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
@@ -8994,7 +9165,7 @@ if DAata and DAata:match("^delallanimation(.*)$") and Addictive(data) then
 local delallmation = DAata:match("^delallanimation(.*)$")
 local Text ="• تم اللغاء منع كل المتحركات"
 inline = {
-{{text = '•  ᥰᎥᧁᧁꪖ  .',url='http://t.me/NiGGa_SoUrcE'}},
+{{text = '•  ᥰᎥᧁᧁꪖ  .',url='http://t.me/NIGGA_SoUrcE'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
@@ -9007,7 +9178,7 @@ if DAata and DAata:match("^delallph(.*)$") and Addictive(data) then
 local delallph = DAata:match("^delallph(.*)$")
 local Text ="• تم اللغاء منع كل الصور"
 inline = {
-{{text = '•  ᥰᎥᧁᧁꪖ  .',url='http://t.me/NiGGa_SoUrcE'}},
+{{text = '•  ᥰᎥᧁᧁꪖ  .',url='http://t.me/NIGGA_SoUrcE'}},
 }
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
 send_inlin_key(Chat_id,Text,inline)
@@ -9156,8 +9327,8 @@ if text and text:match('^'..Name_Bot..' ') then
 data.message_.content_.text_ = data.message_.content_.text_:gsub('^'..Name_Bot..' ','')
 end
 ------------------------------------------------------------------------
-NiggA_Started_Bot(msg,data)
-NiggA_Files(msg)
+NIGGA_Started_Bot(msg,data)
+NIGGA_Files(msg)
 elseif (data.ID == "UpdateMessageEdited") then
 local msg = data
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.message_id_)},function(extra, result, success)
@@ -9260,8 +9431,8 @@ end
 end
 ------------------------------------------------------------------------
 if text then
-local NiggA_Msg = database:sismember(bot_id.."List:Filter:text"..result.chat_id_,text) 
-if NiggA_Msg then    
+local NIGGA_Msg = database:sismember(bot_id.."List:Filter:text"..result.chat_id_,text) 
+if NIGGA_Msg then    
 Reply_Status(result,result.sender_user_id_,"reply","• الكلمه ممنوعه من المجموعه")  
 DeleteMessage(result.chat_id_, {[0] = data.message_id_})     
 return false
