@@ -7435,13 +7435,13 @@ if text and text:match("^برج (.*)$") and database:get(bot_id.."brj_Bots"..msg
 local Textbrj = text:match("^برج (.*)$")
 gk = https.request('https://mode-pro.tk/apix/Oks.php?br='..URL.escape(Textbrj)..'')
 br = JSON.decode(gk)
-send(msg.chat_id_, msg.id_, br.ok.[1])
+send(msg.chat_id_, msg.id_, br.ok.NG)
 end
 if text and text:match("^احسب (.*)$") and database:get(bot_id.."age_Bots"..msg.chat_id_) == "open" then
 local Textage = text:match("^احسب (.*)$")
 ge = https.request('https://mode-pro.tk/ageApi/niggaapi.php?age='..URL.escape(Textage)..'')
 ag = JSON.decode(ge)
-send(msg.chat_id_, msg.id_, ag.ok.[7])
+send(msg.chat_id_, msg.id_, ag.ok.Rt)
 end
 if text == 'السيرفر' and DevNIGGA(msg) then 
 send(msg.chat_id_, msg.id_, io.popen([[
