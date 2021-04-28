@@ -7926,15 +7926,20 @@ dofile("NIGGA.lua")
 send(msg.chat_id_, msg.id_, "• تم التحديث")
 end
 
-if text == 'السورس' or text == 'سورس نيغا' or text == 'ياسورس' or text == 'source' then       
-local Text ='• سورس نيغا الرسمي •'
+if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then  
+local url,res = https.request('https://mode-pro.tk/xniggax/Johoin.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.info ~= true then
+send(msg.chat_id_,msg.id_,' شترك في قناة السورس اولآ @Nigga_source .')   
+return false 
+end
+Text = "𝙃𝙞 𝙉𝙞𝙜𝙜𝙖 𝙎𝙤𝙪𝙧𝙘𝙚\n\n [. مطور نيغا  .](https://t.me/ZzZzD)\n\n[. قناة سورس نيغا .](https://t.me/Nigga_source)"
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text =  '𝘾𝙝𝙖𝙣𝙣𝙚𝙡 𝙉𝙄𝙂𝙂𝘼',url="t.me/ZzZzD"}},
-{{text =  '𝘿𝙚𝙫 𝙉𝙄𝙂𝙂𝘼',url="t.me/NIGGA_SoUrcE"}},
+{{text = '𝙉𝙞𝙜𝙜𝙖 𝘾𝙝𝙖𝙣𝙣𝙚𝙡',url="t.me/Nigga_source"}},
 }
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text='..URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/Nigga_source&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 if text == 'اريد بوت' or text == 'اريد مطور' or text == 'خوش سورس' or text == 'سورس نيغا' or text == 'اريد بوت تمبلر' or text == 'سورس نيغا' then
@@ -9396,9 +9401,6 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, FunBot, nil)
 return false
 end    
-end
-if text and text:match('^'..Name_Bot..' ') then
-data.message_.content_.text_ = data.message_.content_.text_:gsub('^'..Name_Bot..' ','')
 end
 ------------------------------------------------------------------------
 NIGGA_Started_Bot(msg,data)
