@@ -3,7 +3,7 @@ cd $HOME/NIGGA
 install() {
 rm -rf $HOME/.telegram-cli
 sudo chmod +x tg
-chmod +x Run
+chmod +x NIGGA
 chmod +x NG
 ./NG
 }
@@ -48,7 +48,7 @@ fi
 installall
 cd ..
 rm -rf luarocks*
-cd NIGGA
+cd DEV-NAG
 rm -rf luarocks*
 lua start.lua
 

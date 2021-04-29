@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-cd $HOME/NIGGA
+cd $HOME/DEV-NAG
 rm -rf $HOME/.telegram-cli
 install() {
 apt install dnsutils
 rm -rf $HOME/.telegram-cli
 sudo chmod +x tg
-chmod +x NIGGA
+chmod +x DEV-NAG
 chmod +x NG
 ./NG
 }
