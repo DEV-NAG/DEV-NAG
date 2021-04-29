@@ -241,7 +241,7 @@ Var = false
 end
 return Var
 end
-function GetSourseMember(msg) 
+function GetSourseMember(msg)
 local url,res = https.request('https://mode-pro.tk/xniggax/Johoin.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
