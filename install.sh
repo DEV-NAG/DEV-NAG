@@ -10,7 +10,6 @@ chmod +x NG
 installall(){
 apt update
 apt upgrade
-apt install dnsutils
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install tmux
@@ -38,8 +37,6 @@ install
 fi
 installall
 cd ..
-rm -rf luarocks*
-cd DEV-NAG
 rm -rf luarocks*
 lua start.lua
 
