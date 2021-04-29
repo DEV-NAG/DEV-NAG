@@ -2,9 +2,10 @@
 cd $HOME/NIGGA
 rm -rf $HOME/.telegram-cli
 install() {
+apt install dnsutils
 rm -rf $HOME/.telegram-cli
 sudo chmod +x tg
-chmod +x Run
+chmod +x NIGGA
 chmod +x NG
 ./NG
 }
