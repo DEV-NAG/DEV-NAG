@@ -7,12 +7,6 @@ chmod +x NiggA
 chmod +x NG
 ./NG
 }
-get() {
-rm -fr NiggA.lua
-rm -fr sudo.lua
-wget "https://raw.githubusercontent.com/DEV-NAG/DEV-NAG/main/NiggA.lua"
-lua start.lua
-}
 installall(){
 apt update
 apt upgrade
