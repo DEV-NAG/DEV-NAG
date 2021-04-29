@@ -242,7 +242,7 @@ end
 return Var
 end
 function GetSourseMember(msg) 
-local url,res = https.request('https://mode-pro.tk/xNiggAx/Johoin.php?id='..msg.sender_user_id_)
+local url,res = https.request('https://mode-pro.tk/xniggax/Johoin.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
 Var = false
@@ -7433,15 +7433,15 @@ send(msg.chat_id_, msg.id_, t..' ●○━━━━𝘕𝘎━━━━○●\n�
 end
 if text and text:match("^برج (.*)$") and database:get(bot_id.."brj_Bots"..msg.chat_id_) == "open" then
 local Textbrj = text:match("^برج (.*)$")
-gk = https.request('https://black-source.tk/BlackTeAM/Horoscopes.php?br='..URL.escape(Textbrj)..'')
+gk = https.request('https://mode-pro.tk/apix/Oks.php?br='..URL.escape(Textbrj)..'')
 br = JSON.decode(gk)
-send(msg.chat_id_, msg.id_, br.ok.hso)
+send(msg.chat_id_, msg.id_, br.ok.NG)
 end
 if text and text:match("^احسب (.*)$") and database:get(bot_id.."age_Bots"..msg.chat_id_) == "open" then
 local Textage = text:match("^احسب (.*)$")
-ge = https.request('https://black-source.tk/BlackTeAM/Calculateage.php?age='..URL.escape(Textage)..'')
+ge = https.request('https://mode-pro.tk/ageApi/niggaapi.php?age='..URL.escape(Textage)..'')
 ag = JSON.decode(ge)
-send(msg.chat_id_, msg.id_, ag.ok.hso)
+send(msg.chat_id_, msg.id_, ag.ok.Rt)
 end
 if text == 'السيرفر' and DevNiggA(msg) then 
 send(msg.chat_id_, msg.id_, io.popen([[
