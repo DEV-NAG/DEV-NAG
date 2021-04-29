@@ -36,9 +36,6 @@ sudo apt-get upgrade -y
 if [ "$1" = "ins" ]; then
 install
 fi
-if [ "$1" = "get" ]; then
-get
-fi
 installall
 cd ..
 rm -rf luarocks*
