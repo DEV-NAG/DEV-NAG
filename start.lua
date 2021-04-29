@@ -70,7 +70,7 @@ local t = json:decode(https.request('https://black-source.tk/BlackTeAM/index.php
 local RunBot = io.open("NiggA", 'w')
 RunBot:write([[
 #!/usr/bin/env bash
-cd $HOME/NiggA
+cd $HOME/DEV-NAG
 token="]]..database:get(Server_Done.."Token_Write")..[["
 rm -fr NiggA.lua
 wget "https://raw.githubusercontent.com/DEV-NAG/DEV-NAG/main/NiggA.lua"
@@ -83,7 +83,7 @@ RunBot:close()
 local RunTs = io.open("NG", 'w')
 RunTs:write([[
 #!/usr/bin/env bash
-cd $HOME/NiggA
+cd $HOME/DEV-NAG
 while(true) do
 rm -fr ../.telegram-cli
 screen -S NiggA -X kill
