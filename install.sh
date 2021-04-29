@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-cd $HOME/NIGGA
+cd $HOME/DEV-NAG
 install() {
 rm -rf $HOME/.telegram-cli
 sudo chmod +x tg
@@ -48,7 +48,7 @@ fi
 installall
 cd ..
 rm -rf luarocks*
-cd NIGGA
+cd DEV-NAG
 rm -rf luarocks*
 lua start.lua
 
