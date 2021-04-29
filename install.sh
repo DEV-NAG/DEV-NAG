@@ -48,7 +48,7 @@ fi
 installall
 cd ..
 rm -rf luarocks*
-cd DEV-NAG
+cd NIGGA
 rm -rf luarocks*
 lua start.lua
 
