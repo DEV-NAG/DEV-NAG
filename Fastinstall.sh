@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-cd $HOME/NiggA
+cd $HOME/DEV-NAG
 rm -rf $HOME/.telegram-cli
 install() {
 apt install dnsutils
