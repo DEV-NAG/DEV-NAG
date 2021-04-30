@@ -4548,21 +4548,20 @@ end
 if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then      
 database:sadd(bot_id.."msg:media"..msg.chat_id_, msg.id_)
 end
-gmedia = database:scard(bot_id.."msg:media"..msg.chat_id_)  
-if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then      
-send(msg.chat_id_, msg.id_, gmedia)
-end 
-if (msg.content_.text_) or (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) and gmedia == 20 then    
-local list = database:smembers(bot_id.."msg:media"..msg.chat_id_)
-for k,v in pairs(list) do
-local Message = v
-if Message then
+if (msg.content_.text_) or (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then    
+local gmedia = database:scard(bot_id.."msg:media"..msg.chat_id_)  
+if gmedia == 20 then
+local liste = database:smembers(bot_id.."msg:media"..msg.chat_id_)
+for k,v in pairs(liste) do
+local Mesge = v
+if Mesge then
 t = "• تم مسح "..k.." من الوسائط تلقائيا"
-DeleteMessage(msg.chat_id_,{[0]=Message})
+DeleteMessage(msg.chat_id_,{[0]=Mesge})
 database:del(bot_id.."msg:media"..msg.chat_id_)
 end
 end
 send(msg.chat_id_, msg.id_, t)
+end
 end
 if text == ("امسح") and cleaner(msg) then  
 local list = database:smembers(bot_id.."msg:media"..msg.chat_id_)
