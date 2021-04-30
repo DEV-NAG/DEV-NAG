@@ -4548,12 +4548,13 @@ end
 if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then      
 database:sadd(bot_id.."msg:media"..msg.chat_id_, msg.id_)
 end
-if data.ID and not database:get(bot_id.."y:msg:media"..msg.chat_id_) then    
+gmedia = database:scard(bot_id.."msg:media"..msg.chat_id_)  
+if data.ID and gmedia == 20  and not database:get(bot_id.."y:msg:media"..msg.chat_id_) then    
 local list = database:smembers(bot_id.."msg:media"..msg.chat_id_)
 for k,v in pairs(list) do
 local Message = v
-if k == 20 then
-t = "⌔︙تم مسح "..k.." من الوسائط الموجوده"
+if Message then
+t = "• تم مسح "..k.." من الوسائط تلقائيا"
 DeleteMessage(msg.chat_id_,{[0]=Message})
 database:del(bot_id.."msg:media"..msg.chat_id_)
 end
@@ -4565,13 +4566,13 @@ local list = database:smembers(bot_id.."msg:media"..msg.chat_id_)
 for k,v in pairs(list) do
 local Message = v
 if Message then
-t = "⌔︙تم مسح "..k.." من الوسائط الموجوده"
+t = "• تم مسح "..k.." من الوسائط الموجوده"
 DeleteMessage(msg.chat_id_,{[0]=Message})
 database:del(bot_id.."msg:media"..msg.chat_id_)
 end
 end
 if #list == 0 then
-t = "⌔︙لا يوجد ميديا في المجموعه"
+t = "• لا يوجد ميديا في المجموعه"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -4580,11 +4581,11 @@ local num = database:smembers(bot_id.."msg:media"..msg.chat_id_)
 for k,v in pairs(num) do
 local numl = v
 if numl then
-l = "⌔︙عدد الميديا الموجود هو "..k
+l = "• عدد الميديا الموجود هو "..k
 end
 end
 if #num == 0 then
-l = "⌔︙لا يوجد ميديا في المجموعه"
+t = "• لا يوجد ميديا في المجموعه"
 end
 send(msg.chat_id_, msg.id_, l)
 end
