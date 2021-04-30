@@ -1829,12 +1829,12 @@ Reply_Status(msg,msg.sender_user_id_,"lock",'• تم تفعيل الزخرفه'
 return false
 end 
 if text == "تعطيل المسح التلقائي" and Owner(msg) and GetSourseMember(msg) then        
-database:del(bot_id.."y:msg:media"..msg.chat_id_)
+database:set(bot_id.."y:msg:media"..msg.chat_id_,true)
 Reply_Status(msg,msg.sender_user_id_,"lock",'• تم تعطيل المسح التلقائي للميديا')
 return false
 end 
 if text == "تفعيل المسح التلقائي" and Owner(msg) and GetSourseMember(msg) then        
-database:set(bot_id.."y:msg:media"..msg.chat_id_,true)
+database:del(bot_id.."y:msg:media"..msg.chat_id_)
 Reply_Status(msg,msg.sender_user_id_,"lock",'• تم تفعيل المسح التلقائي للميديا')
 return false
 end 
@@ -4587,14 +4587,14 @@ DeleteMessage(msg.chat_id_,Msgs2)
 end,nil)  
 send(msg.chat_id_, msg.id_,'• تم تنظيف الميديا المعدله')
 end
-if database:get(bot_id.."y:msg:media"..msg.chat_id_) and (msg.content_.text_) or (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then    
+if not database:get(bot_id.."y:msg:media"..msg.chat_id_) and (msg.content_.text_) or (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then    
 local gmedia = database:scard(bot_id.."msg:media"..msg.chat_id_)  
 if gmedia == 200 then
 local liste = database:smembers(bot_id.."msg:media"..msg.chat_id_)
 for k,v in pairs(liste) do
 local Mesge = v
 if Mesge then
-t = "• تم مسح "..k.." من الوسائط تلقائيا"
+t = "• تم مسح "..k.." من الوسائط تلقائيا\n• يمكنك تعطيل الميزه بستخدام الامر ( `تعطيل المسح التلقائي` )"
 DeleteMessage(msg.chat_id_,{[0]=Mesge})
 end
 end
