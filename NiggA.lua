@@ -4549,7 +4549,10 @@ if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) o
 database:sadd(bot_id.."msg:media"..msg.chat_id_, msg.id_)
 end
 gmedia = database:scard(bot_id.."msg:media"..msg.chat_id_)  
-if data.ID and gmedia == 20  and not database:get(bot_id.."y:msg:media"..msg.chat_id_) then    
+if data.ID  then    
+send(msg.chat_id_, msg.id_, gmedia)
+end 
+if data.ID and gmedia == 20 then    
 local list = database:smembers(bot_id.."msg:media"..msg.chat_id_)
 for k,v in pairs(list) do
 local Message = v
